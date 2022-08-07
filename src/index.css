@@ -7,13 +7,13 @@ body {
   margin: 0;
   font-family: 'Soleil', sans-serif;
   font-size: 2.5vh;
-  color: #d0d0d0;
+  color: #fffcef;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: radial-gradient(circle at center, gray 0, black 100%);
+  background-image: radial-gradient(circle at center, #9ea5a5 0, #1a1a1a 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: #000000;
+  background-color: #1a1a1a;
 }
 
 
@@ -23,7 +23,7 @@ code {
 }
 
 .Minter {
-  max-width: 80vh;
+  max-width: 90vw;
   max-height: 80vh;
   padding: 60px 100px;
   margin: 0 auto;

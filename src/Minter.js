@@ -115,7 +115,9 @@ const WalletButton = props => {
 
 const RenderLogo = props => {
   return (
-    <a href="#"><img src={Logo} id="logo" alt="Logo"></img></a>
+    <div id="logoContainer">
+      <img src={Logo} id="logo"></img>
+    </div>
   );
 }
 
@@ -155,7 +157,6 @@ const RenderStatus = props => {
 
       <div id="mint-container">
         <RenderLogo/>
-        <RenderPrice/>
         <MintButton/>
       </div>
 

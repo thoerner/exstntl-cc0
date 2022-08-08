@@ -27,6 +27,16 @@
     cursor: pointer;
   }
 
+  #mintButton:hover {
+    min-width: 10vw;
+    min-height: 5vh;
+    margin: 2vh;
+    background-color: #1a1a1a;
+    color: #fffcef;
+    border: 2px solid #9ea5a5;
+    cursor: pointer;
+  }
+
   #nft-container {
     text-align: center;
     display: inline-block;
@@ -181,6 +191,7 @@
 
   #subtitle {
     text-align: center;
+    margin-bottom: 5vh;
   }
 
   #status {
@@ -215,7 +226,7 @@
     text-align: center;
     height: 33vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
   }

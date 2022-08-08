@@ -42,6 +42,7 @@
   .nft {
     margin: 5px;
     max-width: 27vw;
+    cursor:pointer;
   }
 
   .activeNft {
@@ -217,7 +218,7 @@
   .nft {
     margin: 5px;
     max-width: 14.7vw;
-    cursor:pointer;
+
   }
 
   .activeNft {

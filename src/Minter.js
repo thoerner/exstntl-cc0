@@ -22,7 +22,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { Caret, Eth, Twitter } from './components/fas';
-import { moonbirdText, dickbuttText, alienText } from './utils/highlights';
+import { moonbirdText, dickbuttText, alienText, freeMintText } from './utils/highlights';
 
 library.add(fab, fas);
 
@@ -304,11 +304,7 @@ const RenderHighlight = props => {
   var text = null;
   switch (activeNft) {
     case "moonbird":
-      text = <div id="text-container">
-        <p>We meme together. We build together.
-        {" "}<a href="https://twitter.com/EXSTNTLdotART" id="social" target="_blank"><Twitter/></a>
-        </p>
-      </div>
+      text = freeMintText;
       break;
     case "dickbutt":
       text = dickbuttText;
@@ -349,6 +345,7 @@ function onNftClick(nft) {
         <RenderSubtitle/>
         <RenderHighlight/>
         <RenderNfts/>
+        <RenderTextContent/>
       </div>
 
     </div>

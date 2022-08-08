@@ -21,16 +21,11 @@
     height: 62vw;
   }
 
-  #text-container {
-    padding: 0px 10px;
-    font-size: 4vh;
-    max-width: 90vw;
-    text-align: center;
-  }
+
 
   .nft {
     margin: 5px;
-    max-width: 28vw;
+    max-width: 27vw;
   }
 
   .activeNft {
@@ -49,7 +44,7 @@
 
   #highlight-text-container {
     margin-top: 2vh;
-    padding: 0px 0px;
+    padding: 0px 10px;
     border-radius: 16px;
     background-color: #9ea5a5;
     width: 80vw;
@@ -62,6 +57,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  #text-container {
+    font-size: 5vh;
+    max-width: 90vw;
+    text-align: center;
   }
 
 
@@ -147,7 +148,7 @@
 }
 
 #highlight-text {
-  color: #1a1a1a;
+  color: ivory;
   text-align: center;
 }
 

@@ -14,6 +14,7 @@ import Mfer from './images/nfts/mfer.png';
 import Moonbird from './images/nfts/moonbird.png';
 import Noun from './images/nfts/noun.png';
 import Toad from './images/nfts/toad.png';
+import Larvalad from './images/nfts/larvalad.png';
 import X from './images/x.png';
 import { STATUS_READY, STATUS_NOT_READY } from './utils/constants';
 import toast, { Toaster } from 'react-hot-toast';
@@ -195,6 +196,9 @@ function renderNft(nft) {
     case "toad":
       pSrc = Toad;
       break;
+    case "larvalad":
+      pSrc = Larvalad;
+      break;
     default:
   }
   switch (nft) {
@@ -216,6 +220,9 @@ function renderNft(nft) {
     case "toad":
       cSrc = Toad;
       break;
+    case "larvalad":
+      cSrc = Larvalad;
+      break;
     default:
   }
   const element = <img src={activeNft===nft ? pSrc : cSrc} className="nft" id={activeNft===nft ? prevNft : nft}></img>;
@@ -232,6 +239,7 @@ const RenderNfts = props => {
       {activeNft==="noun" ? "" : renderNft("noun")}
       {activeNft==="mfer" ? "" : renderNft("mfer")}
       {activeNft==="toad" ? "" : renderNft("toad")}
+      {activeNft==="larvalad" ? "" : renderNft("larvalad")}
     </div>
   )
 }
@@ -282,6 +290,9 @@ function renderHightLightImage(nft) {
       break;
     case "toad":
       cSrc = Toad;
+      break;
+    case "larvalad":
+      cSrc = Larvalad;
       break;
     default:
   }

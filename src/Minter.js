@@ -16,7 +16,7 @@ import Noun from './images/nfts/noun.png';
 import Toad from './images/nfts/toad.png';
 import Larvalad from './images/nfts/larvalad.png';
 import X from './images/x.png';
-import { STATUS_READY, STATUS_NOT_READY } from './utils/constants';
+import { CONTRACT_ADDRESS, STATUS_READY, STATUS_NOT_READY } from './utils/constants';
 import toast, { Toaster } from 'react-hot-toast';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -141,7 +141,7 @@ const WalletButton = props => {
 const RenderLogo = props => {
   return (
     <div id="logoContainer">
-      <img src={Logo} id="logo"></img>
+      <a href="#"><img src={Logo} id="logo"></img></a>
     </div>
   );
 }
@@ -162,7 +162,7 @@ const MintButton = props => {
 
 const MintCounter = props => {
   return (
-    <p>{minted} / {maxTokens} minted</p>
+    <a href={"https://rinkeby.etherscan.io/token/" + CONTRACT_ADDRESS}><p id="mint-counter"><span id="count">{minted}</span> /❓minted</p></a>
   );
 }
 
@@ -265,7 +265,7 @@ const RenderSubtitle = props => {
 const RenderX = props => {
   return (
     <div id="x-container">
-      <img src={X} id="x"></img>
+      <a href="https://www.exstntl.art/" target="_blank"><img src={X} id="x"></img></a>
     </div>
   )
 }
@@ -325,9 +325,11 @@ const RenderHighlight = props => {
         {text}
       </div>
       {renderHightLightImage(activeNft)}
+
     </div>
   )
 }
+
 
 function onNftClick(nft) {
   setPrevNft(activeNft);
@@ -339,7 +341,7 @@ function onNftClick(nft) {
       <Toaster/>
       <RenderX/>
       <WalletButton/>
-
+      <MintCounter/>
       <div id="mint-container">
         <RenderLogo/>
         <RenderSubtitle/>

@@ -1,6 +1,12 @@
-
-
 @media (min-width: 250px) {
+
+  a {
+    color:ivory;
+  }
+
+  a:visited {
+    color: ivory;
+  }
 
   .App {
     text-align: center;
@@ -21,7 +27,17 @@
     height: 62vw;
   }
 
-
+  #walletButton {
+    left: 100px;
+    position: absolute;
+    border-radius: 16px;
+    text-align: right;
+    margin-bottom: 30px;
+    line-height: 16px;
+    background-color: #1a1a1a;
+    color: white;
+    border: 2px solid gray;
+  }
 
   .nft {
     margin: 5px;
@@ -65,11 +81,101 @@
     text-align: center;
   }
 
-
   #x {
     position: absolute;
     left: 25px;
     width: 50px;
+  }
+
+  #mint-counter {
+    max-width: 50vw;
+    right: 25px;
+    position: absolute;
+    visibility: visible;
+  }
+
+  #highlight-text {
+    color: ivory;
+    text-align: center;
+  }
+
+  #social {
+    color: #fffcef;
+    text-decoration: none;
+  }
+
+  #logoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #logo {
+    max-width: 90vw;
+    padding: 25px 25px 25px 25px;
+  }
+
+  #alien {
+  }
+  #dickbutt {
+  }
+  #mfer {
+  }
+  #moonbird {
+  }
+  #noun {
+  }
+  #toad {
+  }
+
+  button {
+    padding: 9px 16px;
+    max-height: 40px;
+    border-color: #f8e897;
+    color: #c5fbc3;
+    background-color: white;
+    border-radius: 8px;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  #amount {
+    font-size: 24px;
+    padding: 9px 16px;
+  }
+
+  #price {
+    font-size: 24px;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  #title {
+    padding-top: 32px;
+  }
+
+  #subtitle {
+    text-align: center;
+  }
+
+  #status {
+    color:#ff0000;
+  }
+
+  #count {
+    font-size: 48px;
+    line-height: 16px;
+  }
+
+  #walletButton:hover {
+    color: #ffffff;
+    background: #9ea5a5;
+    cursor: pointer;
   }
 
 }
@@ -83,6 +189,18 @@
     bottom: 0;
     width: 99.7vw;
     overflow-x: hidden;
+  }
+
+  #walletButton {
+    left: 100px;
+    position: fixed;
+    border-radius: 16px;
+    text-align: right;
+    margin-bottom: 30px;
+    line-height: 16px;
+    background-color: #1a1a1a;
+    color: white;
+    border: 2px solid gray;
   }
 
   #nft-container {
@@ -134,10 +252,15 @@
     justify-content: center;
   }
 
-
   #x {
-    position: absolute;
+    position: fixed;
     width: 50px;
+  }
+
+  #mint-counter {
+    right: 100px;
+    position: fixed;
+    visibility: visible;
   }
 
   #text-container {
@@ -145,112 +268,4 @@
     max-width: 90vw;
     text-align: center;
   }
-}
-
-#highlight-text {
-  color: ivory;
-  text-align: center;
-}
-
-#social {
-  color: #fffcef;
-  text-decoration: none;
-}
-
-#logoContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#logo {
-  max-width: 90vw;
-  padding: 25px 25px 25px 25px;
-}
-
-
-
-
-
-#alien {
-
-}
-
-#dickbutt {
-
-}
-
-#mfer {
-
-}
-
-#moonbird {
-
-}
-
-#noun {
-
-}
-
-#toad {
-
-}
-
-
-
-button {
-  padding: 9px 16px;
-  max-height: 40px;
-  border-color: #f8e897;
-  color: #c5fbc3;
-  background-color: white;
-  border-radius: 8px;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 500;
-  text-align: center;
-  font-weight: bold;
-}
-
-#amount {
-  font-size: 24px;
-  padding: 9px 16px;
-}
-
-#price {
-  font-size: 24px;
-  padding: 10px 10px;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-#title {
-  padding-top: 32px;
-}
-
-#subtitle {
-  text-align: center;
-}
-
-#status {
-  color:#ff0000;
-}
-
-#walletButton {
-  left: 100px;
-  position: absolute;
-  border-radius: 16px;
-  text-align: right;
-  margin-bottom: 30px;
-  line-height: 16px;
-  background-color: #1a1a1a;
-  color: white;
-  border: 2px solid gray;
-}
-
-#walletButton:hover {
-  color: #ffffff;
-  background: #9ea5a5;
-  cursor: pointer;
 }

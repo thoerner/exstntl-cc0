@@ -22,7 +22,7 @@ export const alienText = <div id="highlight-text">
 </div>
 
 export const freeMintText = <div id="highlight-text">
-  <p>A free mint for free minds. A world where we can own without
-  license and create without constraints. You can mint 0ne per
-  day until we're done. And then maybe more.</p>
+  <p>A free mint for free minds. Let's own without license and create
+  without constraints. The Genesis collection will mint 0ne per day until
+  we're done. And then maybe more.</p>
 </div>

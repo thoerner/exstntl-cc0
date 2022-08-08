@@ -28,7 +28,7 @@
   }
 
   #walletButton {
-    left: 100px;
+    left: 90px;
     position: absolute;
     border-radius: 16px;
     text-align: right;
@@ -192,7 +192,7 @@
   }
 
   #walletButton {
-    left: 100px;
+    left: 90px;
     position: fixed;
     border-radius: 16px;
     text-align: right;

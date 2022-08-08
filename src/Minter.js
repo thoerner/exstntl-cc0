@@ -248,7 +248,7 @@ const RenderTextContent = props => {
   return (
     <div id="text-container">
       <p>We meme together. We build together.
-      {" "}<a href="https://twitter.com/EXSTNTLdotART" id="social" target="_blank"><Twitter/></a>
+      <br></br><a href="https://twitter.com/EXSTNTLdotART" id="social" target="_blank"><Twitter/></a>
       </p>
     </div>
   )
@@ -315,7 +315,7 @@ const RenderHighlight = props => {
     default:
       text = <div id="highlight-text">
         <p>We meme together. We build together.
-        {" "}<a href="https://twitter.com/EXSTNTLdotART" id="social" target="_blank"><Twitter/></a>
+        <a href="https://twitter.com/EXSTNTLdotART" id="social" target="_blank"><Twitter/></a>
         </p>
       </div>
   }

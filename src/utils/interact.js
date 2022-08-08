@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { isMobile } from "react-device-detect";
-import { METAMASK_REDIRECT_URL, CONTRACT_ADDRESS } from "./constants";
+import { METAMASK_REDIRECT_URL, CONTRACT_ADDRESS, STATUS_READY, STATUS_NOT_READY } from "./constants";
 
 require('dotenv').config();
 const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
@@ -104,7 +104,7 @@ export const connectWallet = async () => {
         method: "eth_requestAccounts",
       });
       const obj = {
-        status: "👆🏽 Press the button to mint your NFTs.",
+        status: STATUS_READY,
         address: addressArray[0],
       };
       return obj;
@@ -142,7 +142,7 @@ export const getCurrentWalletConnected = async () => {
       if (addressArray.length > 0) {
         return {
           address: addressArray[0],
-          status: "👆🏽 Press the buttons to mint your NFT(s).",
+          status: STATUS_READY,
         };
       } else {
         return {

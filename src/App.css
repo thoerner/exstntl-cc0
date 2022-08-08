@@ -21,6 +21,44 @@
   padding: 25px 25px 25px 25px;
 }
 
+#nft-container {
+  padding: 2vw 0px;
+  max-height: 15vw;
+}
+
+.nft {
+  max-width: 15vw;
+}
+
+#alien {
+
+}
+
+#dickbutt {
+
+}
+
+#mfer {
+
+}
+
+#moonbird {
+
+}
+
+#noun {
+
+}
+
+#toad {
+
+}
+
+.activeNft {
+  box-shadow: 0px 0px 100px white;
+  cursor: pointer;
+}
+
 button {
   padding: 9px 16px;
   max-height: 40px;

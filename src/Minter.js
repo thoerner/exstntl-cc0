@@ -8,6 +8,13 @@ import {
   getMaxTokens
 } from "./utils/interact.js";
 import Logo from './images/logo.png';
+import Alien from './images/nfts/alien.png';
+import Dickbutt from './images/nfts/dickbutt.png';
+import Mfer from './images/nfts/mfer.png';
+import Moonbird from './images/nfts/moonbird.png';
+import Noun from './images/nfts/noun.png';
+import Toad from './images/nfts/toad.png';
+import { STATUS_READY, STATUS_NOT_READY } from './utils/constants';
 import toast, { Toaster } from 'react-hot-toast';
 
 
@@ -35,9 +42,11 @@ const Minter = (props) => {
   }, []);
 
   useEffect(() => {
-    toast(status, {
-      position: "bottom-center"
-    });
+    if (status != "") {
+      toast(status, {
+        position: "bottom-center"
+      });
+    }
   }, [status]);
 
   const connectWalletPressed = async () => {
@@ -56,7 +65,7 @@ const Minter = (props) => {
     window.ethereum.on("accountsChanged", (accounts) => {
       if (accounts.length > 0) {
         setWallet(accounts[0]);
-        setStatus("👆🏽 Press the buttons to mint your NFT(s).");
+        setStatus(STATUS_READY);
       } else {
         setWallet("");
         setStatus("🦊 Connect to Metamask using the top left button.");
@@ -149,6 +158,29 @@ const RenderStatus = props => {
   );
 }
 
+const RenderNfts = props => {
+  var activeNft = "moonbird";
+  return (
+    <div id="nft-container">
+      <img src={Moonbird} className={activeNft === "moonbird" ? "nft activeNft" : "nft"} id="moonbird"></img>
+      <img src={Dickbutt} className={activeNft === "dickbutt" ? "nft activeNft" : "nft"} id="dickbutt"></img>
+      <img src={Alien} className={activeNft === "alien" ? "nft activeNft" : "nft"} id="alien"></img>
+      <img src={Noun} className={activeNft === "noun" ? "nft activeNft" : "nft"} id="noun"></img>
+      <img src={Mfer} className={activeNft === "mfer" ? "nft activeNft" : "nft"} id="mfer"></img>
+      <img src={Toad} className={activeNft === "toad" ? "nft activeNft" : "nft"} id="toad"></img>
+    </div>
+  )
+}
+
+const RenderTextContent = props => {
+  return (
+    <div>
+      <p>A community exploring the limits of CC0.
+      Zer0 is the beginning.</p>
+    </div>
+  )
+}
+
 
   return (
     <div className="Minter">
@@ -157,7 +189,8 @@ const RenderStatus = props => {
 
       <div id="mint-container">
         <RenderLogo/>
-        <MintButton/>
+        <RenderNfts/>
+        <RenderTextContent/>
       </div>
 
     </div>

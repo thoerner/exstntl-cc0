@@ -23,9 +23,7 @@ code {
 }
 
 .Minter {
-  max-width: 90vw;
-  max-height: 80vh;
-  padding: 60px 100px;
+  padding: 50px 2vw;
   margin: 0 auto;
   text-align: left;
 }

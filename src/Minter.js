@@ -225,7 +225,16 @@ function renderNft(nft) {
       break;
     default:
   }
-  const element = <img src={activeNft===nft ? pSrc : cSrc} className="nft" id={activeNft===nft ? prevNft : nft} onClick={() => toast("Coming soon! 🎉")}></img>;
+  const element = <img src={activeNft===nft ? pSrc : cSrc} className="nft" id={activeNft===nft ? prevNft : nft}
+    onClick={() => toast("Coming soon! 🎉",
+      { position: 'bottom-center',
+        style: {
+        background: '#1A1A1A',
+        color: '#fffcef',
+        textAlign: 'center',
+        },
+      })
+    }></img>;
   return element;
 }
 

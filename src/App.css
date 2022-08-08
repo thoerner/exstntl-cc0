@@ -49,6 +49,21 @@
     margin-right: 2vw;
   }
 
+  #mint-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  #x {
+    position: absolute;
+    left: 25px;
+    width: 50px;
+  }
+
 }
 
 @media (min-width: 1200px) {
@@ -103,6 +118,19 @@
     max-width: 33vw;
     margin-right: 2vw;
   }
+
+  #mint-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  #x {
+    position: absolute;
+    width: 50px;
+  }
 }
 
 
@@ -119,12 +147,8 @@
   text-decoration: none;
 }
 
-#mint-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+
+
 
 #text-container {
   font-size: 5vh;
@@ -213,6 +237,8 @@ button {
 }
 
 #walletButton {
+  left: 100px;
+  position: absolute;
   border-radius: 16px;
   text-align: right;
   margin-bottom: 30px;

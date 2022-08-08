@@ -14,6 +14,7 @@ import Mfer from './images/nfts/mfer.png';
 import Moonbird from './images/nfts/moonbird.png';
 import Noun from './images/nfts/noun.png';
 import Toad from './images/nfts/toad.png';
+import X from './images/x.png';
 import { STATUS_READY, STATUS_NOT_READY } from './utils/constants';
 import toast, { Toaster } from 'react-hot-toast';
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -253,6 +254,14 @@ const RenderSubtitle = props => {
   )
 }
 
+const RenderX = props => {
+  return (
+    <div id="x-container">
+      <img src={X} id="x"></img>
+    </div>
+  )
+}
+
 function renderHightLightImage(nft) {
   var cSrc = null;
   switch (nft) {
@@ -313,6 +322,7 @@ function onNftClick(nft) {
   return (
     <div className="Minter">
       <Toaster/>
+      <RenderX/>
       <WalletButton/>
 
       <div id="mint-container">

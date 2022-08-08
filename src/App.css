@@ -25,6 +25,7 @@
   }
 
   #highlight {
+    margin-top: 2vh;
     padding: 0px 20px;
     border-radius: 16px;
     background-color: #9ea5a5;
@@ -56,6 +57,7 @@
   }
 
   #highlight {
+    margin-top: auto;
     border-radius: 16px;
     background-color: #9ea5a5;
     max-width: 50vw;
@@ -162,6 +164,10 @@ button {
 
 #title {
   padding-top: 32px;
+}
+
+#subtitle {
+  text-align: center;
 }
 
 #status {

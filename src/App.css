@@ -57,7 +57,7 @@
 
   .activeNft {
     box-shadow: 0px 0px 50px #fffcef;
-    cursor: auto;
+    cursor: pointer;
     min-width: 60vw;
   }
 
@@ -254,7 +254,7 @@
     box-shadow: 0px 0px 50px #fffcef;
     cursor: auto;
     min-width: 40vh;
-    cursor:auto;
+    cursor:pointer;
     min-height: 33vh;
   }
 

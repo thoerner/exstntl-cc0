@@ -332,8 +332,20 @@ function renderHightLightImage(nft) {
       break;
     default:
   }
-  const element = <img src={cSrc} className="nft activeNft" id={nft}></img>;
+  const element = <img src={cSrc} className="nft activeNft" id={nft} onClick={() => onActiveNftClick()}></img>;
   return element;
+}
+
+const onActiveNftClick = () => {
+  toast("h00 h00!",
+  { icon: '🦉',
+    position: 'bottom-center',
+    style: {
+    background: '#1A1A1A',
+    color: '#fffcef',
+    textAlign: 'center',
+    },
+  });
 }
 
 const mint = async () => {

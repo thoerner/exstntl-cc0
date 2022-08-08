@@ -416,6 +416,7 @@ const RenderHighlight = props => {
           {text}
         </div>
         <MintButton/>
+        The bird was minted by moykle.eth!
       </div>
       {renderHightLightImage(activeNft)}
 

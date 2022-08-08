@@ -44,7 +44,12 @@ const Minter = (props) => {
   useEffect(() => {
     if (status != "") {
       toast(status, {
-        position: "bottom-center"
+        position: "bottom-center",
+        style: {
+          background: '#1A1A1A',
+          color: '#fffcef',
+          textAlign: 'center',
+        },
       });
     }
   }, [status]);
@@ -68,7 +73,7 @@ const Minter = (props) => {
         setStatus(STATUS_READY);
       } else {
         setWallet("");
-        setStatus("🦊 Connect to Metamask using the top left button.");
+        setStatus(STATUS_NOT_READY);
       }
     });
   } else {

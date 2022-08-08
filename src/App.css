@@ -98,14 +98,14 @@ button {
   text-align: right;
   margin-bottom: 30px;
   line-height: 16px;
-  background-color: black;
+  background-color: #1a1a1a;
   color: white;
   border: 2px solid gray;
 }
 
 #walletButton:hover {
   color: #ffffff;
-  background: blue;
+  background: #9ea5a5;
   cursor: pointer;
 }
 

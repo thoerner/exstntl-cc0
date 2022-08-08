@@ -209,6 +209,12 @@
     cursor: pointer;
   }
 
+  #qmark {
+    font-size: 35px;
+    font-weight: 700;
+    color: #b80808;
+  }
+
 }
 
 @media (min-width: 1200px) {

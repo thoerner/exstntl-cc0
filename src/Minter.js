@@ -190,7 +190,7 @@ const MintButton = props => {
 
 const MintCounter = props => {
   return (
-    <a href={"https://goerli.etherscan.io/token/" + CONTRACT_ADDRESS} target="_blank"><p id="mint-counter"><span id="count">{minted}</span> /❓minted</p></a>
+    <a href={"https://goerli.etherscan.io/token/" + CONTRACT_ADDRESS} target="_blank"><p id="mint-counter"><span id="count">{minted}</span> / <span id="qmark">?</span> minted</p></a>
   );
 }
 

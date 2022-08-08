@@ -17,6 +17,16 @@
     overflow-x: hidden;
   }
 
+  #mintButton {
+    min-width: 10vw;
+    min-height: 5vh;
+    margin: 2vh;
+    background-color: #fffcef;
+    color: #1a1a1a;
+    border: 2px solid #9ea5a5;
+    cursor: pointer;
+  }
+
   #nft-container {
     text-align: center;
     display: inline-block;
@@ -35,8 +45,8 @@
     margin-bottom: 30px;
     line-height: 16px;
     background-color: #1a1a1a;
-    color: white;
-    border: 2px solid gray;
+    color: #fffcef;
+    border: 2px solid #9ea5a5;
   }
 
   .nft {
@@ -47,12 +57,21 @@
 
   .activeNft {
     box-shadow: 0px 0px 50px #fffcef;
-    cursor: pointer;
+    cursor: auto;
     min-width: 60vw;
   }
 
   #highlight {
     width: 90vw;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #highlight-left-container {
+    text-align: center;
+    height: 33vh;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -65,7 +84,7 @@
     border-radius: 16px;
     background-color: #9ea5a5;
     width: 80vw;
-    margin-right: 2vw;
+
   }
 
   #mint-container {
@@ -192,6 +211,15 @@
     overflow-x: hidden;
   }
 
+  #highlight-left-container {
+    text-align: center;
+    height: 33vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   #walletButton {
     left: 90px;
     position: fixed;
@@ -226,7 +254,7 @@
     box-shadow: 0px 0px 50px #fffcef;
     cursor: auto;
     min-width: 40vh;
-    cursor:pointer;
+    cursor:auto;
     min-height: 33vh;
   }
 

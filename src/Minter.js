@@ -107,6 +107,30 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+const getDate = (timestamp) => {
+  var date = new Date(timestamp * 1000);
+  var year = date.getFullYear();
+  var month = ("0" + (date.getMonth() + 1)).substr(-2);
+  var day = ("0" + date.getDate()).substr(-2);
+
+  return month + "/" + day + "/" + year ;
+}
+
+const getTime = (timestamp) => {
+  var date = new Date(timestamp * 1000);
+  var t = "AM";
+  var hour = ("0" + date.getHours()).substr(-2);
+  var minutes = ("0" + date.getMinutes()).substr(-2);
+  var seconds = ("0" + date.getSeconds()).substr(-2);
+
+  if (hour > 12) {
+    hour = hour - 12;
+    t = "PM";
+  }
+
+  return hour + ":" + minutes + t;
+}
+
 const incAmount = () => {
   if (amount < maxMint) {
     setAmount(amount + 1);
@@ -157,8 +181,8 @@ const RenderPrice = props => {
 
 const MintButton = props => {
   return (
-    <button class="button one" id="mintButton" onClick={onMintPressed}>
-      Mint
+    <button id="mintButton" onClick={() => mint()}>
+      Mint the Bird
     </button>
   );
 }
@@ -308,7 +332,7 @@ function renderHightLightImage(nft) {
       break;
     default:
   }
-  const element = <img src={cSrc} className="nft activeNft" id={nft} onClick={() => mint()}></img>;
+  const element = <img src={cSrc} className="nft activeNft" id={nft}></img>;
   return element;
 }
 
@@ -316,7 +340,16 @@ const mint = async () => {
   var mintStart = await getMintStart();
   var time = await getTimestamp();
   if (time < mintStart) {
-    toast("Mint inactive!");
+    var date = await getDate(mintStart);
+    var time = await getTime(mintStart);
+    toast("Mint inactive until \n" + date + " @ " + time + "!",
+    { position: 'bottom-center',
+      style: {
+      background: '#1A1A1A',
+      color: '#fffcef',
+      textAlign: 'center',
+      },
+    });
   } else {
     mintNFT(1);
   }
@@ -343,8 +376,11 @@ const RenderHighlight = props => {
   }
   return (
     <div id="highlight">
-      <div id="highlight-text-container">
-        {text}
+      <div id="highlight-left-container">
+        <div id="highlight-text-container">
+          {text}
+        </div>
+        <MintButton/>
       </div>
       {renderHightLightImage(activeNft)}
 

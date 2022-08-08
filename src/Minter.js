@@ -16,6 +16,12 @@ import Noun from './images/nfts/noun.png';
 import Toad from './images/nfts/toad.png';
 import { STATUS_READY, STATUS_NOT_READY } from './utils/constants';
 import toast, { Toaster } from 'react-hot-toast';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { Caret, Eth, Twitter } from './components/fas';
+
+library.add(fab, fas);
 
 
 const Minter = (props) => {
@@ -180,12 +186,33 @@ const RenderNfts = props => {
 const RenderTextContent = props => {
   return (
     <div id="text-container">
-      <p>A community exploring the limits of CC0.
-      <br></br>Zer0 is the beginning.</p>
+      <p>We meme together. We build together.
+      {" "}<a href="https://twitter.com/EXSTNTLdotART" id="social" target="_blank"><Twitter/></a>
+      </p>
     </div>
   )
 }
 
+const RenderSubtitle = props => {
+  return (
+    <div id="subtitle">
+      <p>We're not a community, we're a CC0mune.</p>
+    </div>
+  )
+}
+
+const RenderHighlight = props => {
+  return (
+    <div id="highlight">
+      <p>Moonbirds are a collection of 10,000 non-fungible tokens issued under
+      the ERC-721 standard on Ethereum’s network that took flight on April 16th,
+      2022.</p>
+      <p>According to the official website, Moonbirds NFTs represent
+      “utility-enabled PFPs that feature a richly diverse and unique pool of
+      rarity-powered traits.”</p>
+    </div>
+  )
+}
 
   return (
     <div className="Minter">
@@ -194,7 +221,9 @@ const RenderTextContent = props => {
 
       <div id="mint-container">
         <RenderLogo/>
+        <RenderSubtitle/>
         <RenderNfts/>
+        <RenderHighlight/>
         <RenderTextContent/>
       </div>
 

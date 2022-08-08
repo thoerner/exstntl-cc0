@@ -10,9 +10,6 @@ body {
   color: #fffcef;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: radial-gradient(circle at center, #9ea5a5 0, #1a1a1a 100%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   background-color: #1a1a1a;
 }
 

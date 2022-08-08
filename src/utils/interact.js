@@ -10,9 +10,27 @@ const web3 = createAlchemyWeb3(alchemyKey);
 const contractABI = require('../contract-abi.json')
 const contractAddress = CONTRACT_ADDRESS;
 
-export const getPrice = async () => {
+export const getBlockNumber = () => {
+  var blockNumber = web3.eth.getBlockNumber();
+  return blockNumber;
+}
+
+export const getTimestamp = async () => {
+  var blockNumber = await getBlockNumber();
+  var block = await web3.eth.getBlock(blockNumber);
+  var timestamp = block.timestamp;
+  return timestamp;
+}
+
+export const getMintStart = async () => {
   const contract = await new web3.eth.Contract(contractABI, contractAddress);
-  const price = await contract.methods.price().call();
+  const mintStart = await contract.methods.dailyMintStart().call();
+  return mintStart;
+}
+
+export const getDailyPrice = async () => {
+  const contract = await new web3.eth.Contract(contractABI, contractAddress);
+  const price = await contract.methods.dailyPrice().call();
   return price / (10 ** 18);
 }
 
@@ -29,13 +47,6 @@ export const getMaxTokens = async () => {
 }
 
 export const mintNFT = async (amount) => {
-  //error handling
-   if (amount.trim() == "") {
-     return {
-      success: false,
-      status: "❗Please make sure all fields are completed before minting.",
-     }
-    }
   if (window.ethereum) {
      window.contract = await new web3.eth.Contract(contractABI, contractAddress);
 
@@ -43,7 +54,7 @@ export const mintNFT = async (amount) => {
      const transactionParameters = {
             to: contractAddress, // Required except during contract publications.
             from: window.ethereum.selectedAddress, // must match user's active address.
-            value: web3.utils.toHex(web3.utils.toWei(String(await getPrice() * amount), 'ether')), // set payment amount
+            value: web3.utils.toHex(web3.utils.toWei(String(await getDailyPrice() * amount), 'ether')), // set payment amount
             'data': window.contract.methods.mint(amount).encodeABI()//make call to NFT smart contract
      };
 

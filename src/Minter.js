@@ -3,9 +3,12 @@ import {
   connectWallet,
   getCurrentWalletConnected,
   mintNFT,
-  getPrice,
+  getDailyPrice,
   getMinted,
-  getMaxTokens
+  getMaxTokens,
+  getTimestamp,
+  getBlockNumber,
+  getMintStart
 } from "./utils/interact.js";
 import Logo from './images/logo.png';
 import Alien from './images/nfts/alien.png';
@@ -46,7 +49,7 @@ const Minter = (props) => {
     const {address, status} = await getCurrentWalletConnected();
     setWallet(address);
     //setStatus(status);
-    setPrice(await getPrice());
+    setPrice(await getDailyPrice());
     setMinted(await getMinted());
     setMaxTokens(await getMaxTokens());
     addWalletListener();
@@ -162,7 +165,7 @@ const MintButton = props => {
 
 const MintCounter = props => {
   return (
-    <a href={"https://rinkeby.etherscan.io/token/" + CONTRACT_ADDRESS}><p id="mint-counter"><span id="count">{minted}</span> /❓minted</p></a>
+    <a href={"https://goerli.etherscan.io/token/" + CONTRACT_ADDRESS} target="_blank"><p id="mint-counter"><span id="count">{minted}</span> /❓minted</p></a>
   );
 }
 
@@ -305,8 +308,18 @@ function renderHightLightImage(nft) {
       break;
     default:
   }
-  const element = <img src={cSrc} className="nft activeNft" id={nft}></img>;
+  const element = <img src={cSrc} className="nft activeNft" id={nft} onClick={() => mint()}></img>;
   return element;
+}
+
+const mint = async () => {
+  var mintStart = await getMintStart();
+  var time = await getTimestamp();
+  if (time < mintStart) {
+    toast("Mint inactive!");
+  } else {
+    mintNFT(1);
+  }
 }
 
 const RenderHighlight = props => {

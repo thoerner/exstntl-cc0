@@ -21,6 +21,12 @@
     height: 62vw;
   }
 
+  #text-container {
+    font-size: 4vh;
+    max-width: 90vw;
+    text-align: center;
+  }
+
   .nft {
     margin: 5px;
     max-width: 28vw;
@@ -42,7 +48,7 @@
 
   #highlight-text-container {
     margin-top: 2vh;
-    padding: 10px 5px;
+    padding: 0px 0px;
     border-radius: 16px;
     background-color: #9ea5a5;
     width: 80vw;
@@ -131,11 +137,13 @@
     position: absolute;
     width: 50px;
   }
+
+  #text-container {
+    font-size: 5vh;
+    max-width: 90vw;
+    text-align: center;
+  }
 }
-
-
-
-
 
 #highlight-text {
   color: #1a1a1a;
@@ -145,15 +153,6 @@
 #social {
   color: #fffcef;
   text-decoration: none;
-}
-
-
-
-
-#text-container {
-  font-size: 5vh;
-  max-width: 90vw;
-  text-align: center;
 }
 
 #logoContainer {

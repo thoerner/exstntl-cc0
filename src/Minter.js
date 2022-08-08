@@ -317,7 +317,7 @@ const RenderHighlight = props => {
       text = alienText;
       break;
     default:
-      text = <div id="text-container">
+      text = <div id="highlight-text">
         <p>We meme together. We build together.
         {" "}<a href="https://twitter.com/EXSTNTLdotART" id="social" target="_blank"><Twitter/></a>
         </p>

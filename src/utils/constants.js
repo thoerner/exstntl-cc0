@@ -1,6 +1,6 @@
 export const METAMASK_REDIRECT_URL = 'https://metamask.app.link/dapp/www.cc0mune.xyz';
 
-export const CONTRACT_ADDRESS = '0xB3C63e8087b38251331fB1f6F296B17dE6047F22';
+export const CONTRACT_ADDRESS = '0xA2B0bF837f5efA2A664bd7D44cb0C964D3691BE6';
 
 export const STATUS_READY = 'Tap the "Mint the Bird" button to mint.';
 

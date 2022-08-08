@@ -20,6 +20,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { Caret, Eth, Twitter } from './components/fas';
+import { moonbirdText, dickbuttText, alienText } from './utils/highlights';
 
 library.add(fab, fas);
 
@@ -33,6 +34,8 @@ const Minter = (props) => {
   const [minted, setMinted] = useState(0);
   const [maxTokens, setMaxTokens] = useState(0);
   const [amount, setAmount] = useState(1);
+  const [activeNft, setActiveNft] = useState("moonbird");
+  const [prevNft, setPrevNft] = useState(null);
   const maxMint = 20;
   const minMint = 1;
 
@@ -169,16 +172,65 @@ const RenderStatus = props => {
   );
 }
 
+function renderNft(nft) {
+  var pSrc = null;
+  var cSrc = null;
+  switch (prevNft) {
+    case "moonbird":
+      pSrc = Moonbird;
+      break;
+    case "dickbutt":
+      pSrc = Dickbutt;
+      break;
+    case "alien":
+      pSrc = Alien;
+      break;
+    case "noun":
+      pSrc = Noun;
+      break;
+    case "mfer":
+      pSrc = Mfer;
+      break;
+    case "toad":
+      pSrc = Toad;
+      break;
+    default:
+  }
+  switch (nft) {
+    case "moonbird":
+      cSrc = Moonbird;
+      break;
+    case "dickbutt":
+      cSrc = Dickbutt;
+      break;
+    case "alien":
+      cSrc = Alien;
+      break;
+    case "noun":
+      cSrc = Noun;
+      break;
+    case "mfer":
+      cSrc = Mfer;
+      break;
+    case "toad":
+      cSrc = Toad;
+      break;
+    default:
+  }
+  const element = <img src={activeNft===nft ? pSrc : cSrc} className="nft" id={activeNft===nft ? prevNft : nft}></img>;
+  return element;
+}
+
 const RenderNfts = props => {
-  var activeNft = "moonbird";
+
   return (
     <div id="nft-container">
-      <img src={Moonbird} className={activeNft === "moonbird" ? "nft activeNft" : "nft"} id="moonbird"></img>
-      <img src={Dickbutt} className={activeNft === "dickbutt" ? "nft activeNft" : "nft"} id="dickbutt"></img>
-      <img src={Alien} className={activeNft === "alien" ? "nft activeNft" : "nft"} id="alien"></img>
-      <img src={Noun} className={activeNft === "noun" ? "nft activeNft" : "nft"} id="noun"></img>
-      <img src={Mfer} className={activeNft === "mfer" ? "nft activeNft" : "nft"} id="mfer"></img>
-      <img src={Toad} className={activeNft === "toad" ? "nft activeNft" : "nft"} id="toad"></img>
+      {activeNft==="moonbird" ? "" : renderNft("moonbird")}
+      {activeNft==="dickbutt" ? "" : renderNft("dickbutt")}
+      {activeNft==="alien" ? "" : renderNft("alien")}
+      {activeNft==="noun" ? "" : renderNft("noun")}
+      {activeNft==="mfer" ? "" : renderNft("mfer")}
+      {activeNft==="toad" ? "" : renderNft("toad")}
     </div>
   )
 }
@@ -201,17 +253,61 @@ const RenderSubtitle = props => {
   )
 }
 
+function renderHightLightImage(nft) {
+  var cSrc = null;
+  switch (nft) {
+    case "moonbird":
+      cSrc = Moonbird;
+      break;
+    case "dickbutt":
+      cSrc = Dickbutt;
+      break;
+    case "alien":
+      cSrc = Alien;
+      break;
+    case "noun":
+      cSrc = Noun;
+      break;
+    case "mfer":
+      cSrc = Mfer;
+      break;
+    case "toad":
+      cSrc = Toad;
+      break;
+    default:
+  }
+  const element = <img src={cSrc} className="nft activeNft" id={nft}></img>;
+  return element;
+}
+
 const RenderHighlight = props => {
+  var text = null;
+  switch (activeNft) {
+    case "moonbird":
+      text = moonbirdText;
+      break;
+    case "dickbutt":
+      text = dickbuttText;
+      break;
+    case "alien":
+      text = alienText;
+      break;
+    default:
+      text = "blah";
+  }
   return (
     <div id="highlight">
-      <p>Moonbirds are a collection of 10,000 non-fungible tokens issued under
-      the ERC-721 standard on Ethereum’s network that took flight on April 16th,
-      2022.</p>
-      <p>According to the official website, Moonbirds NFTs represent
-      “utility-enabled PFPs that feature a richly diverse and unique pool of
-      rarity-powered traits.”</p>
+      <div id="highlight-text-container">
+        {text}
+      </div>
+      {renderHightLightImage(activeNft)}
     </div>
   )
+}
+
+function onNftClick(nft) {
+  setPrevNft(activeNft);
+  setActiveNft(nft);
 }
 
   return (
@@ -222,8 +318,8 @@ const RenderHighlight = props => {
       <div id="mint-container">
         <RenderLogo/>
         <RenderSubtitle/>
-        <RenderNfts/>
         <RenderHighlight/>
+        <RenderNfts/>
         <RenderTextContent/>
       </div>
 

@@ -12,7 +12,8 @@
   }
 
   #nft-container {
-    display: block;
+    text-align: center;
+    display: inline-block;
     align-items: center;
     justify-content: center;
     padding: 2vw 0px;
@@ -25,12 +26,27 @@
     max-width: 28vw;
   }
 
+  .activeNft {
+    box-shadow: 0px 0px 50px #fffcef;
+    cursor: pointer;
+    min-width: 60vw;
+  }
+
   #highlight {
+    width: 90vw;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #highlight-text-container {
     margin-top: 2vh;
-    padding: 0px 20px;
+    padding: 10px 5px;
     border-radius: 16px;
     background-color: #9ea5a5;
-    max-width: 75vw;
+    width: 80vw;
+    margin-right: 2vw;
   }
 
 }
@@ -47,10 +63,10 @@
   }
 
   #nft-container {
-    display: auto;
+    display: flex;
     border: none;
-    align-items: auto;
-    justify-content: auto;
+    align-items: center;
+    justify-content: center;
     width: auto;
     height: auto;
     padding: 2vw 0px;
@@ -60,25 +76,40 @@
   .nft {
     margin: 5px;
     max-width: 14.7vw;
+
+  }
+
+  .activeNft {
+    margin-left: 5vw;
+    box-shadow: 0px 0px 50px #fffcef;
+    cursor: auto;
+    min-width: 40vh;
+    cursor:pointer;
+    min-height: 33vh;
   }
 
   #highlight {
-    margin-top: auto;
-    border-radius: 16px;
-    background-color: #9ea5a5;
-    max-width: 50vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
 
+  #highlight-text-container {
+    margin-top: 2vh;
+    padding: 10px 5px;
+    border-radius: 16px;
+    background-color: #9ea5a5;
+    max-width: 33vw;
+    margin-right: 2vw;
+  }
 }
 
-.activeNft {
-  box-shadow: 0px 0px 50px #fffcef;
-  cursor: pointer;
-}
 
 
 
-#highlight p {
+
+#highlight-text {
   color: #1a1a1a;
   text-align: center;
 }
@@ -96,6 +127,7 @@
 }
 
 #text-container {
+  font-size: 5vh;
   max-width: 90vw;
   text-align: center;
 }
@@ -194,82 +226,4 @@ button {
   color: #ffffff;
   background: #9ea5a5;
   cursor: pointer;
-}
-
-#mintButton {
-  position: relative;
-  background: #000;
-  padding: 10px 42px;
-  margin-bottom: 10vh;
-  border-radius: 8px;
-  border: 1px solid gray;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-  font-weight: 600;
-  font-size: 18px;
-  color: #fff;
-  letter-spacing: 0.2em;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  transition: all 0.2s ease;
-}
-
-#mintButton:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -200%;
-  width: 200%;
-  height: 100%;
-  transform: skewX(-20deg);
-  background-image: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
-}
-#mintButton:hover:after {
-  animation: shine 1.6s ease;
-}
-#mintButton:active {
-  transform: translateY(1px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-  background-color: green;
-}
-
-@-moz-keyframes shine {
-  100% {
-    left: 200%;
-  }
-}
-@-webkit-keyframes shine {
-  100% {
-    left: 200%;
-  }
-}
-@-o-keyframes shine {
-  100% {
-    left: 200%;
-  }
-}
-@keyframes shine {
-  100% {
-    left: 200%;
-  }
-}
-
-
-
-#countButton {
-
-  background-color: #ffffff;
-  color:#000000;
-
-}
-
-
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: black;
-  color: white;
-  text-align: center;
 }

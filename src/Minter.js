@@ -293,7 +293,11 @@ const RenderHighlight = props => {
   var text = null;
   switch (activeNft) {
     case "moonbird":
-      text = moonbirdText;
+      text = <div id="text-container">
+        <p>We meme together. We build together.
+        {" "}<a href="https://twitter.com/EXSTNTLdotART" id="social" target="_blank"><Twitter/></a>
+        </p>
+      </div>
       break;
     case "dickbutt":
       text = dickbuttText;
@@ -302,7 +306,11 @@ const RenderHighlight = props => {
       text = alienText;
       break;
     default:
-      text = "blah";
+      text = <div id="text-container">
+        <p>We meme together. We build together.
+        {" "}<a href="https://twitter.com/EXSTNTLdotART" id="social" target="_blank"><Twitter/></a>
+        </p>
+      </div>
   }
   return (
     <div id="highlight">
@@ -330,7 +338,6 @@ function onNftClick(nft) {
         <RenderSubtitle/>
         <RenderHighlight/>
         <RenderNfts/>
-        <RenderTextContent/>
       </div>
 
     </div>

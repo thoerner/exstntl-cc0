@@ -14,7 +14,7 @@
 
   .nft {
     margin: 5px;
-    max-width: 30vw;
+    max-width: 29vw;
   }
 
 }
@@ -43,6 +43,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#text-container {
+  max-width: 90vw;
+  text-align: center;
 }
 
 #logoContainer {

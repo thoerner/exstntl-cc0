@@ -179,9 +179,9 @@ const RenderNfts = props => {
 
 const RenderTextContent = props => {
   return (
-    <div>
+    <div id="text-container">
       <p>A community exploring the limits of CC0.
-      Zer0 is the beginning.</p>
+      <br></br>Zer0 is the beginning.</p>
     </div>
   )
 }

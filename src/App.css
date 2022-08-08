@@ -223,11 +223,11 @@
   }
 
   #highlight-left-container {
-    text-align: center;
+    text-align: right;
     height: 33vh;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
     justify-content: center;
   }
 
@@ -282,7 +282,6 @@
     border-radius: 16px;
     background-color: #9ea5a5;
     max-width: 33vw;
-    margin-right: 2vw;
   }
 
   #mint-container {

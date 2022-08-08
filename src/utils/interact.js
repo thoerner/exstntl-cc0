@@ -55,7 +55,7 @@ export const mintNFT = async (amount) => {
             to: contractAddress, // Required except during contract publications.
             from: window.ethereum.selectedAddress, // must match user's active address.
             value: web3.utils.toHex(web3.utils.toWei(String(await getDailyPrice() * amount), 'ether')), // set payment amount
-            'data': window.contract.methods.mint(amount).encodeABI()//make call to NFT smart contract
+            'data': window.contract.methods.dailyMint(amount).encodeABI()//make call to NFT smart contract
      };
 
     //sign the transaction via Metamask
@@ -68,16 +68,12 @@ export const mintNFT = async (amount) => {
         return {
             success: true,
             status: (
-              <span>
-                <p>
-                  {" "}
-                  ✅{" "}
-                  Check out your transaction on Etherscan:{" "}
-                  <a target="_blank" id="success" href={`https://goerli.etherscan.io/tx/` + txHash}>
-                    {`https://goerli.etherscan.io/tx/` + txHash}
-                  </a>
-                </p>
-              </span>
+              <div>
+                ✅{" "}Check out your transaction on Etherscan:{" "}
+                <a target="_blank" id="success" href={'https://goerli.etherscan.io/tx/' + txHash}>
+                  {'https://goerli.etherscan.io/tx/' + txHash}
+                </a>
+              </div>
             ),
         }
      } catch (error) {

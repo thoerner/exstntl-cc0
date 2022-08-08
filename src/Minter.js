@@ -56,8 +56,9 @@ const Minter = (props) => {
   }, []);
 
   useEffect(() => {
+    console.log(status);
     if (status != "") {
-      toast(status, {
+      toast((t) => (status), {
         position: "bottom-center",
         style: {
           background: '#1A1A1A',
@@ -363,7 +364,29 @@ const mint = async () => {
       },
     });
   } else {
-    mintNFT(1);
+    let tx = await mintNFT(1);
+    if (tx.success == true) {
+      toast(tx.status,
+      { position: 'bottom-center',
+        style: {
+        background: '#1A1A1A',
+        color: '#fffcef',
+        textAlign: 'center',
+        minWidth: '90vw',
+        duration: 10000,
+        },
+      });
+    } else {
+      toast(tx.status,
+      { position: 'bottom-center',
+        style: {
+        background: '#1A1A1A',
+        color: '#fffcef',
+        textAlign: 'center',
+        },
+      });
+    }
+
   }
 }
 

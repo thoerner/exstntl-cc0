@@ -2,6 +2,35 @@
   text-align: center;
 }
 
+@media (min-width: 250px) {
+
+  #nft-container {
+
+    align-items: center;
+    justify-content: center;
+    padding: 2vw 0px;
+    height: 62vw;
+  }
+
+  .nft {
+    max-width: 31vw;
+  }
+
+}
+
+@media (min-width: 1200px) {
+
+  #nft-container {
+    padding: 2vw 0px;
+    max-height: 15vw;
+  }
+
+  .nft {
+    max-width: 15vw;
+  }
+
+}
+
 #mint-container {
   display: flex;
   flex-direction: column;
@@ -21,14 +50,9 @@
   padding: 25px 25px 25px 25px;
 }
 
-#nft-container {
-  padding: 2vw 0px;
-  max-height: 15vw;
-}
 
-.nft {
-  max-width: 15vw;
-}
+
+
 
 #alien {
 

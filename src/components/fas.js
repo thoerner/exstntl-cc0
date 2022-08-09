@@ -6,6 +6,18 @@ export const Caret = () => {
   );
 }
 
+export const Building = () => {
+  return (
+    <FontAwesomeIcon icon={["fas", "building-columns"]} />
+  );
+}
+
+export const ToiletPaper = () => {
+  return (
+    <FontAwesomeIcon icon={["fas", "toilet-paper"]} />
+  );
+}
+
 export const Eth = () => {
   return (
     <FontAwesomeIcon icon={["fab", "ethereum"]} />

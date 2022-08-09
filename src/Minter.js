@@ -18,13 +18,14 @@ import Moonbird from './images/nfts/moonbird.png';
 import Noun from './images/nfts/noun.png';
 import Toad from './images/nfts/toad.png';
 import Larvalad from './images/nfts/larvalad.png';
+import Opensea from './images/os.png';
 import X from './images/x.png';
 import { CONTRACT_ADDRESS, STATUS_READY, STATUS_NOT_READY } from './utils/constants';
 import toast, { Toaster } from 'react-hot-toast';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import { Caret, Eth, Twitter } from './components/fas';
+import { Caret, Eth, Twitter, ToiletPaper } from './components/fas';
 import { moonbirdText, dickbuttText, alienText, freeMintText } from './utils/highlights';
 
 library.add(fab, fas);
@@ -297,6 +298,12 @@ const nftToast = (nft) => {
 
 }
 
+const SmallSpacer = props => {
+  return (
+    <div className="small-spacer"></div>
+  )
+}
+
 const RenderNfts = props => {
 
   return (
@@ -315,9 +322,34 @@ const RenderNfts = props => {
 const RenderTextContent = props => {
   return (
     <div id="text-container">
-      <p>We meme together. We build together.
-      <br></br><a href="https://twitter.com/EXSTNTLdotART" id="social" target="_blank"><Twitter/></a>
-      </p>
+      <p>We meme together. We build together.</p>
+      <div id="social-container">
+        <a
+          href="https://twitter.com/EXSTNTLdotART"
+          id="social"
+          title="Twitter"
+          target="_blank">
+            <Twitter/>
+        </a>
+        <SmallSpacer/>
+        <a
+          href="https://exstntldotart.notion.site/CC0mune-a55e8d401ad44d9a9a1ee8a9aea6169e"
+          id="social"
+          title="C0munal Paper"
+          target="_blank">
+            <ToiletPaper/>
+        </a>
+        <SmallSpacer/>
+        <a
+          href="https://opensea.io/collection/cc0mune"
+          id="social"
+          title="Opensea"
+          target="_blank">
+          <span id="social-icon">
+            <img id="os-icon" src={Opensea}></img>
+          </span>
+        </a>
+      </div>
     </div>
   )
 }

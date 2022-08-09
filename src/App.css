@@ -111,6 +111,33 @@
     text-align: center;
   }
 
+  .small-spacer {
+    padding: 0.5vw;
+  }
+
+  #social-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #social-icon {
+    margin: 6px 0px;
+    width: 5vh;
+    height: 5vh;
+    overflow: hidden;
+    display: inline-flex;
+  }
+
+  #os-icon {
+    max-width: inherit;
+    max-height: inherit;
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+  }
+
   #x {
     position: absolute;
     left: 25px;

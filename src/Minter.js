@@ -17,6 +17,7 @@ import DickbuttSold from './images/nfts/sold/dickbutt.png';
 import Mfer from './images/nfts/mfer.png';
 import Moonbird from './images/nfts/sold/moonbird.png';
 import Noun from './images/nfts/noun.png';
+import NounSold from './images/nfts/sold/noun.png';
 import Toad from './images/nfts/toad.png';
 import Larvalad from './images/nfts/larvalad.png';
 import Opensea from './images/os.png';
@@ -254,7 +255,11 @@ const renderNft = (nft) => {
     case "noun":
       pnft = "dickbutt";
       psrc = Dickbutt;
-      src = Noun;
+      if (minted > 2) {
+        src = NounSold;
+      } else {
+        src = Noun;
+      }
       break;
     case "mfer":
       pnft = "noun";
@@ -285,8 +290,17 @@ const renderNft = (nft) => {
 }
 
 const nftToast = (nft) => {
-  if (nft == "dickbutt") {
+  if (nft == "noun") {
     toast("Just minted!",
+      { position: 'bottom-center',
+        style: {
+        background: '#1A1A1A',
+        color: '#fffcef',
+        textAlign: 'center',
+        },
+      });
+  } else if (nft == "dickbutt") {
+    toast("Minted by IronStride!",
       { position: 'bottom-center',
         style: {
         background: '#1A1A1A',

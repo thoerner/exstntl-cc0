@@ -13,8 +13,9 @@ import {
 import Logo from './images/logo.png';
 import Alien from './images/nfts/alien.png';
 import Dickbutt from './images/nfts/dickbutt.png';
+import DickbuttSold from './images/nfts/sold/dickbutt.png';
 import Mfer from './images/nfts/mfer.png';
-import Moonbird from './images/nfts/moonbird.png';
+import Moonbird from './images/nfts/sold/moonbird.png';
 import Noun from './images/nfts/noun.png';
 import Toad from './images/nfts/toad.png';
 import Larvalad from './images/nfts/larvalad.png';
@@ -51,9 +52,13 @@ const Minter = (props) => {
     setWallet(address);
     //setStatus(status);
     setPrice(await getDailyPrice());
-    setMinted(await getMinted());
+    var minted = await getMinted();
+    setMinted(await minted);
     setMaxTokens(await getMaxTokens());
     addWalletListener();
+    if (minted > 1) {
+      setActiveNft("noun");
+    }
   }, []);
 
   useEffect(() => {
@@ -229,7 +234,7 @@ const RenderStatus = props => {
   );
 }
 
-function renderNft(nft) {
+const renderNft = (nft) => {
   var psrc = null;
   var pnft = null;
   var src = null;
@@ -240,7 +245,11 @@ function renderNft(nft) {
     case "dickbutt":
       pnft = "moonbird";
       psrc = Moonbird;
-      src = Dickbutt;
+      if (minted > 1) {
+        src = DickbuttSold;
+      } else {
+        src = Dickbutt;
+      }
       break;
     case "noun":
       pnft = "dickbutt";
@@ -276,7 +285,16 @@ function renderNft(nft) {
 }
 
 const nftToast = (nft) => {
-  if (nft == "moonbird") {
+  if (nft == "dickbutt") {
+    toast("Just minted!",
+      { position: 'bottom-center',
+        style: {
+        background: '#1A1A1A',
+        color: '#fffcef',
+        textAlign: 'center',
+        },
+      });
+  } else if (nft == "moonbird") {
     toast("Minted by moykle.eth!",
       { position: 'bottom-center',
         style: {
@@ -416,16 +434,21 @@ const onActiveNftClick = () => {
       text = "h00 h00!";
       break;
     case "noun":
-      text = "h00 h00!";
+      text = <div>
+        <strong>noun <i>/naʊn/</i></strong>
+        <br></br>
+        a word that refers to a person,
+        place, thing, event, substance, or quality
+      </div>
       break;
     case "mfer":
-      text = "h00 h00!";
+      text = "mint me!";
       break;
     case "toad":
-      text = "h00 h00!";
+      text = "ribbit";
       break;
     case "larvalad":
-      text = "h00 h00!";
+      text = "meh";
       break;
     default:
       text = "mint me!";

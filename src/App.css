@@ -130,6 +130,10 @@
     display: inline-flex;
   }
 
+  #bigger {
+    font-size:48px;
+  }
+
   #os-icon {
     max-width: inherit;
     max-height: inherit;

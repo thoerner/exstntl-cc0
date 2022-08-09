@@ -335,7 +335,7 @@ const RenderTextContent = props => {
         <a
           href="https://exstntldotart.notion.site/CC0mune-a55e8d401ad44d9a9a1ee8a9aea6169e"
           id="social"
-          title="C0munal Paper"
+          title="CC0munal Paper"
           target="_blank">
             <ToiletPaper/>
         </a>

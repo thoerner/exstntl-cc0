@@ -334,7 +334,7 @@ const renderNft = (nft) => {
 
 const nftToast = (nft) => {
   if (nft == "noun") {
-    toast("Just minted!",
+    toast("Minted by liamtpd.eth!",
       { position: 'bottom-center',
         style: {
         background: '#1A1A1A',

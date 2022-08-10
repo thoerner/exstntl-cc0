@@ -12,15 +12,20 @@ import {
 } from "./utils/interact.js";
 import Logo from './images/logo.png';
 import Alien from './images/nfts/alien.png';
+import AlienSold from './images/nfts/alien.png';
 import Dickbutt from './images/nfts/dickbutt.png';
 import DickbuttSold from './images/nfts/sold/dickbutt.png';
 import Mfer from './images/nfts/mfer.png';
+import MferSold from './images/nfts/sold/mfer.png';
 import Moonbird from './images/nfts/sold/moonbird.png';
 import Noun from './images/nfts/noun.png';
 import NounSold from './images/nfts/sold/noun.png';
 import Toad from './images/nfts/toad.png';
+import ToadSold from './images/nfts/sold/toad.png';
 import Larvalad from './images/nfts/larvalad.png';
+import LarvaladSold from './images/nfts/sold/larvalad.png';
 import Opensea from './images/os.png';
+import Default from './images/cc0x.png';
 import X from './images/x.png';
 import { CONTRACT_ADDRESS, STATUS_READY, STATUS_NOT_READY } from './utils/constants';
 import toast, { Toaster } from 'react-hot-toast';
@@ -42,7 +47,7 @@ const Minter = (props) => {
   const [minted, setMinted] = useState(0);
   const [maxTokens, setMaxTokens] = useState(0);
   const [amount, setAmount] = useState(1);
-  const [activeNft, setActiveNft] = useState("noun");
+  const [activeNft, setActiveNft] = useState("default");
   const [prevNft, setPrevNft] = useState(null);
   const maxMint = 20;
   const minMint = 1;
@@ -58,6 +63,15 @@ const Minter = (props) => {
     setMaxTokens(await getMaxTokens());
     addWalletListener();
     switch (true) {
+      case minted == 0:
+        setActiveNft("moonbird");
+        break;
+      case minted == 1:
+        setActiveNft("dickbutt");
+        break;
+      case minted == 2:
+        setActiveNft("noun");
+        break;
       case minted == 3:
         setActiveNft("mfer");
         break;
@@ -71,6 +85,7 @@ const Minter = (props) => {
         setActiveNft("toad");
         break;
       default:
+        setActiveNft("default")
     }
   }, []);
 
@@ -224,7 +239,7 @@ const MintButton = props => {
       text = 'Mint the Toad';
       break;
     default:
-      text = 'Mint';
+      text = 'Coming Soon';
   }
   return (
     <button id="mintButton" onClick={() => mint()}>
@@ -276,22 +291,38 @@ const renderNft = (nft) => {
     case "mfer":
       pnft = "noun";
       psrc = Noun;
-      src = Mfer;
+      if (minted > 3) {
+        src = MferSold;
+      } else {
+        src = Mfer;
+      }
       break;
     case "alien":
       pnft = "mfer";
       psrc = Mfer;
-      src = Alien;
+      if (minted > 4) {
+        src = AlienSold;
+      } else {
+        src = Alien;
+      }
       break;
     case "larvalad":
       pnft = "alien";
       psrc = Alien;
-      src = Larvalad;
+      if (minted > 5) {
+        src = LarvaladSold;
+      } else {
+        src = Larvalad;
+      }
       break;
     case "toad":
       pnft = "larvalad";
       psrc = Larvalad;
-      src = Toad;
+      if (minted > 6) {
+        src = ToadSold;
+      } else {
+        src = Toad;
+      }
       break;
 
     default:
@@ -439,6 +470,7 @@ function renderHightLightImage(nft) {
       cSrc = Larvalad;
       break;
     default:
+      cSrc = Default;
   }
   const element = <img src={cSrc} className="nft activeNft" id={nft} onClick={() => onActiveNftClick()}></img>;
   return element;
@@ -457,7 +489,8 @@ const onActiveNftClick = () => {
       emoji = '🍆';
       break;
     case "alien":
-      text = "h00 h00!";
+      text = "take me to ur leader";
+      emoji = '🛸';
       break;
     case "noun":
       text = <div>
@@ -468,16 +501,19 @@ const onActiveNftClick = () => {
       </div>
       break;
     case "mfer":
-      text = "mint me!";
+      text = "mfin mfer";
+      emoji = '🖕';
       break;
     case "toad":
       text = "ribbit";
+      emoji = '🐸';
       break;
     case "larvalad":
       text = "meh";
+      emoji = '🐌';
       break;
     default:
-      text = "mint me!";
+      text = "CC0 ❌ EXSTNL";
     }
   toast(text,
   { icon: emoji,

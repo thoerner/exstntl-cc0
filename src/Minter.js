@@ -32,7 +32,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import { Caret, Eth, Twitter, ToiletPaper } from './components/fas';
+import { Eth, Twitter, ToiletPaper } from './components/fas';
 import { moonbirdText, dickbuttText, alienText, freeMintText } from './utils/highlights';
 
 library.add(fab, fas);
@@ -210,7 +210,7 @@ const RenderLogo = props => {
 
 const RenderPrice = props => {
   return (
-    <div id="price">{price} ETH</div>
+    <div id="price">{price} <Eth/> <span className="small-text">+ gas</span></div>
   );
 }
 
@@ -242,9 +242,12 @@ const MintButton = props => {
       text = 'Coming Soon';
   }
   return (
-    <button id="mintButton" onClick={() => mint()}>
-      {text}
-    </button>
+    <div id="mint-button-area">
+      <button id="mintButton" onClick={() => mint()}>
+        {text}
+      </button>
+      <RenderPrice/>
+    </div>
   );
 }
 

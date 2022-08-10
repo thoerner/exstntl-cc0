@@ -42,7 +42,7 @@ const Minter = (props) => {
   const [minted, setMinted] = useState(0);
   const [maxTokens, setMaxTokens] = useState(0);
   const [amount, setAmount] = useState(1);
-  const [activeNft, setActiveNft] = useState("dickbutt");
+  const [activeNft, setActiveNft] = useState("noun");
   const [prevNft, setPrevNft] = useState(null);
   const maxMint = 20;
   const minMint = 1;
@@ -57,8 +57,20 @@ const Minter = (props) => {
     setMinted(await minted);
     setMaxTokens(await getMaxTokens());
     addWalletListener();
-    if (minted > 1) {
-      setActiveNft("noun");
+    switch (true) {
+      case minted == 3:
+        setActiveNft("mfer");
+        break;
+      case minted == 4:
+        setActiveNft("alien");
+        break;
+      case minted == 5:
+        setActiveNft("larvalad");
+        break;
+      case minted == 6:
+        setActiveNft("toad");
+        break;
+      default:
     }
   }, []);
 

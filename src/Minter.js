@@ -114,6 +114,8 @@ const getTime = (timestamp) => {
   if (hour > 12) {
     hour = hour - 12;
     t = "PM";
+  } else if (hour == 0) {
+    hour = 12;
   }
 
   return hour + ":" + minutes + t;

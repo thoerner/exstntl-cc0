@@ -45,7 +45,6 @@ const Minter = (props) => {
   const [status, setStatus] = useState("");
   const [price, setPrice] = useState(0);
   const [minted, setMinted] = useState(-1);
-  const [maxTokens, setMaxTokens] = useState(0);
   const [amount, setAmount] = useState(1);
   const [activeNft, setActiveNft] = useState("default");
   const [prevNft, setPrevNft] = useState(null);
@@ -64,13 +63,11 @@ const Minter = (props) => {
     setPrice(await getDailyPrice());
     var minted = await getMinted();
     setMinted(await minted);
-    setMaxTokens(await getMaxTokens());
     addWalletListener();
     setActiveNft(nfts[minted]);
   }, []);
 
   useEffect(() => {
-    console.log(status);
     if (status != "") {
       toast((t) => (status));
     }
@@ -109,10 +106,6 @@ const Minter = (props) => {
       </p>
     );
   }
-}
-
-const getRandomInt = (max) => {
-  return Math.floor(Math.random() * max);
 }
 
 const getDate = (timestamp) => {
@@ -209,7 +202,7 @@ const MintButton = props => {
 }
 
 const RenderNfts = props => {
-  const nftImages = nfts.map((nft, i) => <div>{activeNft===nft || i===nfts.length-1 ? "" : renderNft(i)}</div>)
+  const nftImages = nfts.map((nft, i) => <span>{activeNft===nft || i===nfts.length-1 ? "" : renderNft(i)}</span>)
   return (
     <div id="nft-container">
       {nftImages}

@@ -44,7 +44,6 @@ const Minter = (props) => {
   const [price, setPrice] = useState(0);
   const [minted, setMinted] = useState(-1);
   const [amount, setAmount] = useState(1);
-  const [activeNft, setActiveNft] = useState("default");
 
   const nfts = ["moonbird", "dickbutt", "noun", "mfer", "alien", "larvalad", "toad", "default"];
   const nftImgs = [Moonbird, Dickbutt, Noun, Mfer, Alien, Larvalad, Toad, Default];
@@ -57,7 +56,6 @@ const Minter = (props) => {
     setPrice(await getDailyPrice());
     setMinted(await getMinted());
     addWalletListener();
-    setActiveNft(nfts[minted]);
   }, []);
 
   useEffect(() => {
@@ -192,7 +190,7 @@ const MintButton = props => {
 }
 
 const RenderNfts = props => {
-  const nftImages = nfts.map((nft, i) => <span>{activeNft===nft || i===nfts.length-1 ? "" : renderNft(i)}</span>)
+  const nftImages = nfts.map((nft, i) => <span>{nfts[minted]===nft || i===nfts.length-1 ? "" : renderNft(i)}</span>)
   return (
     <div id="nft-container">
       {nftImages}
@@ -312,7 +310,6 @@ const mint = async () => {
     } else {
       toast(tx.status);
     }
-
   }
 }
 
@@ -327,7 +324,6 @@ const RenderHighlight = props => {
         <MintButton/>
       </div>
       {renderHightLightImage(minted)}
-
     </div>
   )
 }
@@ -352,7 +348,6 @@ const RenderHighlight = props => {
         <RenderNfts/>
         <RenderFooter/>
       </div>
-
     </div>
   );
 };

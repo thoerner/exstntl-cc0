@@ -5,9 +5,7 @@ import {
   mintNFT,
   getDailyPrice,
   getMinted,
-  getMaxTokens,
   getTimestamp,
-  getBlockNumber,
   getMintStart
 } from "./utils/interact.js";
 import Logo from './images/logo.png';
@@ -28,13 +26,13 @@ import LarvaladSold from './images/nfts/sold/larvalad.png';
 import Opensea from './images/os.png';
 import Default from './images/cc0x.png';
 import X from './images/x.png';
-import { CONTRACT_ADDRESS, STATUS_READY, STATUS_NOT_READY } from './utils/constants';
+import { CONTRACT_ADDRESS, STATUS_READY, STATUS_NOT_READY, STATUS_NO_MASK } from './utils/constants';
 import toast, { Toaster } from 'react-hot-toast';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { Eth, Twitter, ToiletPaper } from './components/fas';
-import { moonbirdText, dickbuttText, alienText, freeMintText } from './utils/highlights';
+import { freeMintText } from './utils/highlights';
 
 library.add(fab, fas);
 
@@ -47,35 +45,34 @@ const Minter = (props) => {
   const [minted, setMinted] = useState(-1);
   const [amount, setAmount] = useState(1);
   const [activeNft, setActiveNft] = useState("default");
-  const [prevNft, setPrevNft] = useState(null);
-  const maxMint = 20;
-  const minMint = 1;
 
   const nfts = ["moonbird", "dickbutt", "noun", "mfer", "alien", "larvalad", "toad", "default"];
   const nftImgs = [Moonbird, Dickbutt, Noun, Mfer, Alien, Larvalad, Toad, Default];
-  const soldNftImgs = [MoonbirdSold, DickbuttSold, NounSold, MferSold, LarvaladSold, ToadSold];
+  const soldNftImgs = [MoonbirdSold, DickbuttSold, NounSold, MferSold, AlienSold, LarvaladSold, ToadSold];
 
 
   useEffect(async () => {
     const {address, status} = await getCurrentWalletConnected();
     setWallet(address);
-    //setStatus(status);
     setPrice(await getDailyPrice());
-    var minted = await getMinted();
-    setMinted(await minted);
+    setMinted(await getMinted());
     addWalletListener();
     setActiveNft(nfts[minted]);
   }, []);
 
   useEffect(() => {
     if (status != "") {
-      toast((t) => (status));
+      toast(status);
     }
   }, [status]);
 
   const connectWalletPressed = async () => {
      const walletResponse = await connectWallet();
+     var tempStatus = status;
      setStatus(walletResponse.status);
+     if (tempStatus === walletResponse.status) {
+       toast(status);
+     }
      setWallet(walletResponse.address);
   };
 
@@ -96,15 +93,7 @@ const Minter = (props) => {
       }
     });
   } else {
-    setStatus(
-      <p>
-        {" "}
-        🦊{" "}
-        <a target="_blank" href={`https://metamask.io/download.html`}>
-          You must use Metamask or a Web3 browser to mint.
-        </a>
-      </p>
-    );
+    setStatus(STATUS_NO_MASK);
   }
 }
 
@@ -141,7 +130,7 @@ const SmallSpacer = props => {
 const RenderX = props => {
   return (
     <div id="x-container">
-      <a href="https://www.exstntl.art/" target="_blank"><img src={X} id="x"></img></a>
+      <a href="https://www.exstntl.art/" target="_blank" rel="noreferrer"><img src={X} id="x"></img></a>
     </div>
   )
 }
@@ -164,7 +153,8 @@ const MintCounter = props => {
   return (
     <a
       href={"https://etherscan.com/token/" + CONTRACT_ADDRESS}
-      target="_blank">
+      target="_blank"
+      rel="noreferrer">
       <p id="mint-counter">
         <span id="count">{minted}</span> / <span id="qmark">?</span> minted
       </p>
@@ -211,15 +201,18 @@ const RenderNfts = props => {
 }
 
 const renderNft = (i) => {
-  var pnft, psrc, src;
-  pnft = nfts[i - 1];
-  psrc = nftImgs[i - 1];
+  var nft, src;
   if (minted > i) {
     src = soldNftImgs[i];
+    nft = nfts[i];
+  } else if (minted === i) {
+    src = nftImgs[i - 1];
+    nft = nfts[i - 1];
   } else {
     src = nftImgs[i];
+    nft = nfts[i];
   }
-  const element = <img src={activeNft===nfts[i] ? psrc : src} className="nft" id={activeNft===nfts[i] ? pnft : nfts[i]}
+  const element = <img src={src} className="nft" id={nft}
     onClick={() => nftToast(i) }></img>;
   return element;
 }
@@ -243,7 +236,8 @@ const RenderFooter = props => {
           href="https://twitter.com/EXSTNTLdotART"
           id="social"
           title="Twitter"
-          target="_blank">
+          target="_blank"
+          rel="noreferrer">
             <Twitter/>
         </a>
         <SmallSpacer/>
@@ -251,7 +245,8 @@ const RenderFooter = props => {
           href="https://exstntldotart.notion.site/CC0mune-a55e8d401ad44d9a9a1ee8a9aea6169e"
           id="social"
           title="CC0munal Paper"
-          target="_blank">
+          target="_blank"
+          rel="noreferrer">
             <ToiletPaper/>
         </a>
         <SmallSpacer/>
@@ -259,7 +254,8 @@ const RenderFooter = props => {
           href="https://opensea.io/collection/cc0mune"
           id="social"
           title="Opensea"
-          target="_blank">
+          target="_blank"
+          rel="noreferrer">
           <span id="social-icon">
             <img id="os-icon" src={Opensea}></img>
           </span>
@@ -334,11 +330,6 @@ const RenderHighlight = props => {
 
     </div>
   )
-}
-
-const onNftClick = (nft) => {
-  setPrevNft(activeNft);
-  setActiveNft(nft);
 }
 
   return (

@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { isMobile } from "react-device-detect";
-import { METAMASK_REDIRECT_URL, CONTRACT_ADDRESS, STATUS_READY, STATUS_NOT_READY } from "./constants";
+import { METAMASK_REDIRECT_URL, CONTRACT_ADDRESS, STATUS_READY, STATUS_NOT_READY, STATUS_NO_MASK } from "./constants";
 
 require('dotenv').config();
 const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
@@ -88,17 +86,7 @@ export const mintNFT = async (amount) => {
      window.location.href = METAMASK_REDIRECT_URL;
      return {
        address: "",
-       status: (
-         <span>
-           <p>
-             {" "}
-             🦊{" "}
-             <a target="_blank" href={`https://metamask.io/download.html`}>
-               You must use Metamask or a Web3 browser to mint.
-             </a>
-           </p>
-         </span>
-       ),
+       status: (STATUS_NO_MASK),
      };
    }
 
@@ -125,17 +113,7 @@ export const connectWallet = async () => {
     window.location.href = METAMASK_REDIRECT_URL;
     return {
       address: "",
-      status: (
-        <span>
-          <p>
-            {" "}
-            🦊{" "}
-            <a target="_blank" href={`https://metamask.io/download.html`}>
-              You must use Metamask or a Web3 browser to mint.
-            </a>
-          </p>
-        </span>
-      ),
+      status: (STATUS_NO_MASK),
     };
   }
 };
@@ -167,17 +145,7 @@ export const getCurrentWalletConnected = async () => {
 
     return {
       address: "",
-      status: (
-        <span>
-          <p>
-            {" "}
-            🦊{" "}
-            <a target="_blank" href={`https://metamask.io/download.html`}>
-              You must use Metamask or a Web3 browser to mint.
-            </a>
-          </p>
-        </span>
-      ),
+      status: (STATUS_NO_MASK),
     };
   }
 };

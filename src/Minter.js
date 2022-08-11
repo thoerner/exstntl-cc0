@@ -18,6 +18,7 @@ import DickbuttSold from './images/nfts/sold/dickbutt.png';
 import Mfer from './images/nfts/mfer.png';
 import MferSold from './images/nfts/sold/mfer.png';
 import Moonbird from './images/nfts/sold/moonbird.png';
+import MoonbirdSold from './images/nfts/sold/moonbird.png';
 import Noun from './images/nfts/noun.png';
 import NounSold from './images/nfts/sold/noun.png';
 import Toad from './images/nfts/toad.png';
@@ -37,7 +38,6 @@ import { moonbirdText, dickbuttText, alienText, freeMintText } from './utils/hig
 
 library.add(fab, fas);
 
-
 const Minter = (props) => {
 
   //State variables
@@ -52,6 +52,10 @@ const Minter = (props) => {
   const maxMint = 20;
   const minMint = 1;
 
+  const nfts = ["moonbird", "dickbutt", "noun", "mfer", "alien", "larvalad", "toad", "default"];
+  const nftImgs = [Moonbird, Dickbutt, Noun, Mfer, Alien, Larvalad, Toad, Default];
+  const soldNftImgs = [MoonbirdSold, DickbuttSold, NounSold, MferSold, LarvaladSold, ToadSold];
+
 
   useEffect(async () => {
     const {address, status} = await getCurrentWalletConnected();
@@ -62,31 +66,7 @@ const Minter = (props) => {
     setMinted(await minted);
     setMaxTokens(await getMaxTokens());
     addWalletListener();
-    switch (true) {
-      case minted == 0:
-        setActiveNft("moonbird");
-        break;
-      case minted == 1:
-        setActiveNft("dickbutt");
-        break;
-      case minted == 2:
-        setActiveNft("noun");
-        break;
-      case minted == 3:
-        setActiveNft("mfer");
-        break;
-      case minted == 4:
-        setActiveNft("alien");
-        break;
-      case minted == 5:
-        setActiveNft("larvalad");
-        break;
-      case minted == 6:
-        setActiveNft("toad");
-        break;
-      default:
-        setActiveNft("default")
-    }
+    setActiveNft(nfts[minted]);
   }, []);
 
   useEffect(() => {
@@ -114,7 +94,7 @@ const Minter = (props) => {
     setStatus(status);
   };
 
-  function addWalletListener() {
+  const addWalletListener = () => {
   if (window.ethereum) {
     window.ethereum.on("accountsChanged", (accounts) => {
       if (accounts.length > 0) {
@@ -138,7 +118,7 @@ const Minter = (props) => {
   }
 }
 
-function getRandomInt(max) {
+const getRandomInt = (max) => {
   return Math.floor(Math.random() * max);
 }
 
@@ -166,24 +146,18 @@ const getTime = (timestamp) => {
   return hour + ":" + minutes + t;
 }
 
-const incAmount = () => {
-  if (amount < maxMint) {
-    setAmount(amount + 1);
-  }
+const SmallSpacer = props => {
+  return (
+    <div className="small-spacer"></div>
+  )
 }
 
-const decAmount = () => {
-  if (amount > minMint) {
-    setAmount(amount - 1);
-  }
-}
-
-const Switch = props => {
-  const { test, children } = props;
-  // filter out only children with a matching prop
-  return children.find(child => {
-    return child.props.value === test
-  });
+const RenderX = props => {
+  return (
+    <div id="x-container">
+      <a href="https://www.exstntl.art/" target="_blank"><img src={X} id="x"></img></a>
+    </div>
+  )
 }
 
 const WalletButton = props => {
@@ -200,10 +174,23 @@ const WalletButton = props => {
   );
 }
 
-const RenderLogo = props => {
+const MintCounter = props => {
+  return (
+    <a
+      href={"https://etherscan.com/token/" + CONTRACT_ADDRESS}
+      target="_blank">
+      <p id="mint-counter">
+        <span id="count">{minted}</span> / <span id="qmark">?</span> minted
+      </p>
+    </a>
+  );
+}
+
+const RenderTitle = props => {
   return (
     <div id="logoContainer">
       <a href="#"><img src={Logo} id="logo"></img></a>
+      <RenderSubtitle/>
     </div>
   );
 }
@@ -215,189 +202,60 @@ const RenderPrice = props => {
 }
 
 const MintButton = props => {
-  var text = '';
-  switch (activeNft) {
-    case "moonbird":
-      text = 'Mint the Bird';
-      break;
-    case "dickbutt":
-      text = 'Mint the Dickbutt';
-      break;
-    case "mfer":
-      text = 'Mint the Mfer';
-      break;
-    case "alien":
-      text = 'Mint the Alien';
-      break;
-    case "noun":
-      text = 'Mint the Noun';
-      break;
-    case "larvalad":
-      text = 'Mint the Slug';
-      break;
-    case "toad":
-      text = 'Mint the Toad';
-      break;
-    default:
-      text = 'Coming Soon';
-  }
+  var msgs = ["Mint the Bird", "Mint the Dickbutt", "Mint the Noun",
+              "Mint the Mfer", "Mint the Alien", "Mint the Slug",
+              "Mint the Toad", "Minting Soon"];
   return (
     <div id="mint-button-area">
       <button id="mintButton" onClick={() => mint()}>
-        {text}
+        {msgs[minted]}
       </button>
       <RenderPrice/>
     </div>
   );
 }
 
-const MintCounter = props => {
-  return (
-    <a href={"https://etherscan.com/token/" + CONTRACT_ADDRESS} target="_blank"><p id="mint-counter"><span id="count">{minted}</span> / <span id="qmark">?</span> minted</p></a>
-  );
-}
-
-const RenderStatus = props => {
-  return (
-    <p id="status">
-      {status}
-    </p>
-  );
-}
-
-const renderNft = (nft) => {
-  var psrc = null;
-  var pnft = null;
-  var src = null;
-  switch (nft) {
-    case "moonbird":
-      src = Moonbird;
-      break;
-    case "dickbutt":
-      pnft = "moonbird";
-      psrc = Moonbird;
-      if (minted > 1) {
-        src = DickbuttSold;
-      } else {
-        src = Dickbutt;
-      }
-      break;
-    case "noun":
-      pnft = "dickbutt";
-      psrc = Dickbutt;
-      if (minted > 2) {
-        src = NounSold;
-      } else {
-        src = Noun;
-      }
-      break;
-    case "mfer":
-      pnft = "noun";
-      psrc = Noun;
-      if (minted > 3) {
-        src = MferSold;
-      } else {
-        src = Mfer;
-      }
-      break;
-    case "alien":
-      pnft = "mfer";
-      psrc = Mfer;
-      if (minted > 4) {
-        src = AlienSold;
-      } else {
-        src = Alien;
-      }
-      break;
-    case "larvalad":
-      pnft = "alien";
-      psrc = Alien;
-      if (minted > 5) {
-        src = LarvaladSold;
-      } else {
-        src = Larvalad;
-      }
-      break;
-    case "toad":
-      pnft = "larvalad";
-      psrc = Larvalad;
-      if (minted > 6) {
-        src = ToadSold;
-      } else {
-        src = Toad;
-      }
-      break;
-
-    default:
-  }
-  const element = <img src={activeNft===nft ? psrc : src} className="nft" id={activeNft===nft ? pnft : nft}
-    onClick={() => nftToast(nft) }></img>;
-  return element;
-}
-
-const nftToast = (nft) => {
-  if (nft == "noun") {
-    toast("Minted by liamtpd.eth!",
-      { position: 'bottom-center',
-        style: {
-        background: '#1A1A1A',
-        color: '#fffcef',
-        textAlign: 'center',
-        },
-      });
-  } else if (nft == "dickbutt") {
-    toast("Minted by IronStride!",
-      { position: 'bottom-center',
-        style: {
-        background: '#1A1A1A',
-        color: '#fffcef',
-        textAlign: 'center',
-        },
-      });
-  } else if (nft == "moonbird") {
-    toast("Minted by moykle.eth!",
-      { position: 'bottom-center',
-        style: {
-        background: '#1A1A1A',
-        color: '#fffcef',
-        textAlign: 'center',
-        },
-      });
-  } else {
-    toast("Coming soon! 🎉",
-      { position: 'bottom-center',
-        style: {
-        background: '#1A1A1A',
-        color: '#fffcef',
-        textAlign: 'center',
-        },
-      });
-  }
-
-}
-
-const SmallSpacer = props => {
-  return (
-    <div className="small-spacer"></div>
-  )
-}
-
 const RenderNfts = props => {
-
+  const nftImages = nfts.map((nft, i) => <div>{activeNft===nft || i===nfts.length-1 ? "" : renderNft(i)}</div>)
   return (
     <div id="nft-container">
-      {activeNft==="moonbird" ? "" : renderNft("moonbird")}
-      {activeNft==="dickbutt" ? "" : renderNft("dickbutt")}
-      {activeNft==="noun" ? "" : renderNft("noun")}
-      {activeNft==="mfer" ? "" : renderNft("mfer")}
-      {activeNft==="alien" ? "" : renderNft("alien")}
-      {activeNft==="larvalad" ? "" : renderNft("larvalad")}
-      {activeNft==="toad" ? "" : renderNft("toad")}
+      {nftImages}
     </div>
   )
 }
 
-const RenderTextContent = props => {
+const renderNft = (i) => {
+  var pnft, psrc, src;
+  pnft = nfts[i - 1];
+  psrc = nftImgs[i - 1];
+  if (minted > i) {
+    src = soldNftImgs[i];
+  } else {
+    src = nftImgs[i];
+  }
+  const element = <img src={activeNft===nfts[i] ? psrc : src} className="nft" id={activeNft===nfts[i] ? pnft : nfts[i]}
+    onClick={() => nftToast(i) }></img>;
+  return element;
+}
+
+const nftToast = (i) => {
+  var msgs = ["Minted by moykle.eth!", "Minted by IronStride!", "Minted by liamtpd.eth!"];
+  if (i > msgs.length) {
+    var msg = "Coming soon! 🎉";
+  } else {
+    var msg = msgs[i];
+  }
+  toast(msg,
+    { position: 'bottom-center',
+      style: {
+      background: '#1A1A1A',
+      color: '#fffcef',
+      textAlign: 'center',
+      },
+    });
+}
+
+const RenderFooter = props => {
   return (
     <div id="text-container">
       <p>We meme together. We build together.</p>
@@ -440,86 +298,27 @@ const RenderSubtitle = props => {
   )
 }
 
-const RenderX = props => {
-  return (
-    <div id="x-container">
-      <a href="https://www.exstntl.art/" target="_blank"><img src={X} id="x"></img></a>
-    </div>
-  )
-}
 
-function renderHightLightImage(nft) {
-  var cSrc = null;
-  switch (nft) {
-    case "moonbird":
-      cSrc = Moonbird;
-      break;
-    case "dickbutt":
-      cSrc = Dickbutt;
-      break;
-    case "alien":
-      cSrc = Alien;
-      break;
-    case "noun":
-      cSrc = Noun;
-      break;
-    case "mfer":
-      cSrc = Mfer;
-      break;
-    case "toad":
-      cSrc = Toad;
-      break;
-    case "larvalad":
-      cSrc = Larvalad;
-      break;
-    default:
-      cSrc = Default;
-  }
-  const element = <img src={cSrc} className="nft activeNft" id={nft} onClick={() => onActiveNftClick()}></img>;
+
+const renderHightLightImage = (i) => {
+  var src = nftImgs[i];
+  const element = <img src={src} className="nft activeNft" id={nfts[i]} onClick={() => onActiveNftClick()}></img>;
   return element;
 }
 
 const onActiveNftClick = () => {
-  var text = '';
-  var emoji = '';
-  switch (activeNft) {
-    case "moonbird":
-      text = "h00 h00!";
-      emoji = '🦉';
-      break;
-    case "dickbutt":
-      text = "i'm a dickbutt!";
-      emoji = '🍆';
-      break;
-    case "alien":
-      text = "take me to ur leader";
-      emoji = '🛸';
-      break;
-    case "noun":
-      text = <div>
-        <strong>noun <i>/naʊn/</i></strong>
-        <br></br>
-        a word that refers to a person,
-        place, thing, event, substance, or quality
-      </div>
-      break;
-    case "mfer":
-      text = "mfin mfer";
-      emoji = '🖕';
-      break;
-    case "toad":
-      text = "ribbit";
-      emoji = '🐸';
-      break;
-    case "larvalad":
-      text = "meh";
-      emoji = '🐌';
-      break;
-    default:
-      text = "CC0 ❌ EXSTNL";
-    }
-  toast(text,
-  { icon: emoji,
+  var nounText = <div>
+    <strong>noun <i>/naʊn/</i></strong>
+    <br></br>
+    a word that refers to a person,
+    place, thing, event, substance, or quality
+  </div>
+
+  var msgs = ["h00 h00!", "i'm a dickbutt!", nounText, "mfin mfer", "take me to ur leader", "meh", "ribbit", "CC0 ❌ EXSTNL"];
+  var emojis = ["🦉", "🍆", "", "🖕", "🛸", "🐌", "🐸", ""];
+
+  toast(msgs[minted],
+  { icon: emojis[minted],
     position: 'bottom-center',
     style: {
     background: '#1A1A1A',
@@ -580,14 +379,13 @@ const RenderHighlight = props => {
         </div>
         <MintButton/>
       </div>
-      {renderHightLightImage(activeNft)}
+      {renderHightLightImage(minted)}
 
     </div>
   )
 }
 
-
-function onNftClick(nft) {
+const onNftClick = (nft) => {
   setPrevNft(activeNft);
   setActiveNft(nft);
 }
@@ -599,11 +397,10 @@ function onNftClick(nft) {
       <WalletButton/>
       <MintCounter/>
       <div id="mint-container">
-        <RenderLogo/>
-        <RenderSubtitle/>
+        <RenderTitle/>
         <RenderHighlight/>
         <RenderNfts/>
-        <RenderTextContent/>
+        <RenderFooter/>
       </div>
 
     </div>

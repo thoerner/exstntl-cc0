@@ -44,7 +44,7 @@ const Minter = (props) => {
   const [walletAddress, setWallet] = useState("");
   const [status, setStatus] = useState("");
   const [price, setPrice] = useState(0);
-  const [minted, setMinted] = useState(0);
+  const [minted, setMinted] = useState(-1);
   const [maxTokens, setMaxTokens] = useState(0);
   const [amount, setAmount] = useState(1);
   const [activeNft, setActiveNft] = useState("default");
@@ -72,14 +72,7 @@ const Minter = (props) => {
   useEffect(() => {
     console.log(status);
     if (status != "") {
-      toast((t) => (status), {
-        position: "bottom-center",
-        style: {
-          background: '#1A1A1A',
-          color: '#fffcef',
-          textAlign: 'center',
-        },
-      });
+      toast((t) => (status));
     }
   }, [status]);
 
@@ -245,14 +238,7 @@ const nftToast = (i) => {
   } else {
     var msg = msgs[i];
   }
-  toast(msg,
-    { position: 'bottom-center',
-      style: {
-      background: '#1A1A1A',
-      color: '#fffcef',
-      textAlign: 'center',
-      },
-    });
+  toast(msg);
 }
 
 const RenderFooter = props => {
@@ -298,8 +284,6 @@ const RenderSubtitle = props => {
   )
 }
 
-
-
 const renderHightLightImage = (i) => {
   var src = nftImgs[i];
   const element = <img src={src} className="nft activeNft" id={nfts[i]} onClick={() => onActiveNftClick()}></img>;
@@ -317,15 +301,7 @@ const onActiveNftClick = () => {
   var msgs = ["h00 h00!", "i'm a dickbutt!", nounText, "mfin mfer", "take me to ur leader", "meh", "ribbit", "CC0 ❌ EXSTNL"];
   var emojis = ["🦉", "🍆", "", "🖕", "🛸", "🐌", "🐸", ""];
 
-  toast(msgs[minted],
-  { icon: emojis[minted],
-    position: 'bottom-center',
-    style: {
-    background: '#1A1A1A',
-    color: '#fffcef',
-    textAlign: 'center',
-    },
-  });
+  toast(msgs[minted], { icon: emojis[minted] });
 }
 
 const mint = async () => {
@@ -334,36 +310,18 @@ const mint = async () => {
   if (time < mintStart) {
     var date = await getDate(mintStart);
     var time = await getTime(mintStart);
-    toast("Mint inactive until \n" + date + " @ " + time + "!",
-    { position: 'bottom-center',
-      style: {
-      background: '#1A1A1A',
-      color: '#fffcef',
-      textAlign: 'center',
-      },
-    });
+    toast("Mint inactive until \n" + date + " @ " + time + "!");
   } else {
     let tx = await mintNFT(1);
     if (tx.success == true) {
       toast(tx.status,
-      { position: 'bottom-center',
-        style: {
-        background: '#1A1A1A',
-        color: '#fffcef',
-        textAlign: 'center',
+      { style: {
         minWidth: '90vw',
         duration: 10000,
         },
       });
     } else {
-      toast(tx.status,
-      { position: 'bottom-center',
-        style: {
-        background: '#1A1A1A',
-        color: '#fffcef',
-        textAlign: 'center',
-        },
-      });
+      toast(tx.status);
     }
 
   }
@@ -392,7 +350,15 @@ const onNftClick = (nft) => {
 
   return (
     <div className="Minter">
-      <Toaster/>
+      <Toaster
+        toastOptions={{ position: 'bottom-center',
+          style: {
+            background: '#1A1A1A',
+            color: '#fffcef',
+            textAlign: 'center',
+          },
+        }}
+      />
       <RenderX/>
       <WalletButton/>
       <MintCounter/>

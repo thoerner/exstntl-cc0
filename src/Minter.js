@@ -218,7 +218,7 @@ const renderNft = (i) => {
 }
 
 const nftToast = (i) => {
-  var minters = ["moykle.eth", "IronStride", "liamtpd.eth", "mniml.eth"];
+  var minters = ["moykle.eth", "IronStride", "liamtpd.eth", "mniml.eth", "anon 0xE8a1...c990"];
   if (i >= minters.length) {
     var msg = "Coming soon! 🎉";
   } else {

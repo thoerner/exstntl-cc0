@@ -218,11 +218,11 @@ const renderNft = (i) => {
 }
 
 const nftToast = (i) => {
-  var msgs = ["Minted by moykle.eth!", "Minted by IronStride!", "Minted by liamtpd.eth!"];
-  if (i > msgs.length) {
+  var minters = ["moykle.eth", "IronStride", "liamtpd.eth", "mniml.eth"];
+  if (i > minters.length) {
     var msg = "Coming soon! 🎉";
   } else {
-    var msg = msgs[i];
+    var msg = "Minted by " + minters[i] + "!";
   }
   toast(msg);
 }

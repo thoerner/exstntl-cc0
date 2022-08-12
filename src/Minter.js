@@ -10,7 +10,7 @@ import {
 } from "./utils/interact.js";
 import Logo from './images/logo.png';
 import Alien from './images/nfts/alien.png';
-import AlienSold from './images/nfts/alien.png';
+import AlienSold from './images/nfts/sold/alien.png';
 import Dickbutt from './images/nfts/dickbutt.png';
 import DickbuttSold from './images/nfts/sold/dickbutt.png';
 import Mfer from './images/nfts/mfer.png';
@@ -223,6 +223,9 @@ const nftToast = (i) => {
     var msg = "Coming soon! 🎉";
   } else {
     var msg = "Minted by " + minters[i] + "!";
+  }
+  if (minted == minters.length + 1) {
+    if (i == minted - 1) { var msg = "Just minted!"}
   }
   toast(msg);
 }

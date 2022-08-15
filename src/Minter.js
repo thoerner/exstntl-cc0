@@ -23,6 +23,22 @@ import Toad from './images/nfts/toad.png';
 import ToadSold from './images/nfts/sold/toad.png';
 import Larvalad from './images/nfts/larvalad.png';
 import LarvaladSold from './images/nfts/sold/larvalad.png';
+
+import Cryptomarc from './images/nfts/cryptomarc.png';
+import CryptomarcSold from './images/nfts/sold/cryptomarc.png';
+import Dresmarsreal from './images/nfts/dresmarsreal.png';
+import DresmarsrealSold from './images/nfts/sold/dresmarsreal.png';
+import Fastfoodpunk from './images/nfts/fastfoodpunk.png';
+import FastfoodpunkSold from './images/nfts/sold/fastfoodpunk.png';
+import Grifters from './images/nfts/grifters-xcopy.png';
+import GriftersSold from './images/nfts/sold/grifters-xcopy.png';
+import Phunk from './images/nfts/phunk.png';
+import PhunkSold from './images/nfts/sold/phunk.png';
+import Tinydino from './images/nfts/Tiny-Dino.png';
+import TinydinoSold from './images/nfts/sold/Tiny-Dino.png';
+import Uma from './images/nfts/uma.png';
+import UmaSold from './images/nfts/sold/uma.png';
+
 import Opensea from './images/os.png';
 import Default from './images/cc0x.png';
 import X from './images/x.png';
@@ -45,9 +61,21 @@ const Minter = (props) => {
   const [minted, setMinted] = useState(-1);
   const [amount, setAmount] = useState(1);
 
-  const nfts = ["moonbird", "dickbutt", "noun", "mfer", "alien", "larvalad", "toad", "default"];
-  const nftImgs = [Moonbird, Dickbutt, Noun, Mfer, Alien, Larvalad, Toad, Default];
-  const soldNftImgs = [MoonbirdSold, DickbuttSold, NounSold, MferSold, AlienSold, LarvaladSold, ToadSold];
+  const nfts = ["moonbird", "dickbutt", "noun",
+                "mfer", "alien", "larvalad",
+                "toad", "cryptomarc", "dresmarsreal",
+                "fastfoodpunk", "grifters", "phunk",
+                "tinydino", "uma", "default"];
+  const nftImgs = [ Moonbird, Dickbutt, Noun,
+                    Mfer, Alien, Larvalad,
+                    Toad, Cryptomarc, Dresmarsreal,
+                    Fastfoodpunk, Grifters, Phunk,
+                    Tinydino, Uma, Default ];
+  const soldNftImgs = [ MoonbirdSold, DickbuttSold, NounSold,
+                        MferSold, AlienSold, LarvaladSold,
+                        ToadSold, CryptomarcSold, DresmarsrealSold,
+                        FastfoodpunkSold, GriftersSold, PhunkSold,
+                        TinydinoSold, UmaSold];
 
 
   useEffect(async () => {
@@ -180,7 +208,9 @@ const RenderPrice = props => {
 const MintButton = props => {
   var msgs = ["Mint the Bird", "Mint the Dickbutt", "Mint the Noun",
               "Mint the Mfer", "Mint the Alien", "Mint the Slug",
-              "Mint the Toad", "Minting Soon"];
+              "Mint the Toad", "Mint the Marc", "Mint the Mind",
+              "Mint the Punk", "Mint the Grifter", "Mint the Phunk",
+              "Mint the Dino", "Mint the Uma", "Minting Soon"];
   return (
     <div id="mint-button-area">
       <button id="mintButton" onClick={() => mint()}>
@@ -218,14 +248,13 @@ const renderNft = (i) => {
 }
 
 const nftToast = (i) => {
-  var minters = ["moykle.eth", "IronStride", "liamtpd.eth", "mniml.eth", "anon 0xE8a1...c990"];
-  if (i >= minters.length) {
+  var minters = ["moykle.eth", "IronStride", "liamtpd.eth", "mniml.eth", "anon 0xE8a1...c990", "our friend 0xE8a1", "a dedicated collector"];
+  if (i >= minters.length && i > minted) {
     var msg = "Coming soon! 🎉";
+  } else if ( i >= minters.length && minters.length <= i ) {
+    var msg = "Just minted!";
   } else {
     var msg = "Minted by " + minters[i] + "!";
-  }
-  if (minted == minters.length + 1) {
-    if (i == minted - 1) { var msg = "Just minted!"}
   }
   toast(msg);
 }
@@ -290,8 +319,13 @@ const onActiveNftClick = () => {
     place, thing, event, substance, or quality
   </div>
 
-  var msgs = ["h00 h00!", "i'm a dickbutt!", nounText, "mfin mfer", "take me to ur leader", "meh", "ribbit", "CC0 ❌ EXSTNL"];
-  var emojis = ["🦉", "🍆", "", "🖕", "🛸", "🐌", "🐸", ""];
+  var msgs = ["h00 h00!", "i'm a dickbutt!", nounText,
+              "mfin mfer", "take me to ur leader", "meh",
+              "ribbit", "Marcy Marc", "More brain. More power.",
+              "Would you like CC0 with that?", "Grifters gonna grift.",
+              "Let's get Phunky", "Not extinct.", "Uma", "CC0 ❌ EXSTNL"];
+  var emojis = ["🦉", "🍆", "", "🖕", "🛸", "🐌",
+                "🐸", "💁", "🧠", "🍟", "💰", "🔥", "🦖", "🌍"];
 
   toast(msgs[minted], { icon: emojis[minted] });
 }

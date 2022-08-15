@@ -38,13 +38,15 @@
   }
 
   #nft-container {
-    text-align: center;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    text-align: center;
     padding: 12vw 0px;
     width: 90vw;
-    height: 62vw;
+
   }
 
   #walletButton {
@@ -228,6 +230,7 @@
 
   #subtitle {
     text-align: center;
+    max-width: 90vw;
     margin-bottom: 5vh;
   }
 
@@ -293,13 +296,17 @@
 
   #nft-container {
     display: flex;
-    border: none;
+    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: auto;
+    width: 90vw;
     height: auto;
     padding: 2vw 0px;
-    max-height: 14.7vw;
+  }
+
+  * {
+
   }
 
   .nft {

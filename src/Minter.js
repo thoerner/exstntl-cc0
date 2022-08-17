@@ -250,7 +250,8 @@ const renderNft = (i) => {
 const nftToast = (i) => {
   var minters = [ "moykle.eth", "IronStride", "liamtpd.eth",
                   "mniml.eth", "anon 0xE8a1...c990", "our friend 0xE8a1",
-                  "a dedicated collector", "chonkyrubi.eth", "a Protector ⚔️🛡️"];
+                  "a dedicated collector", "chonkyrubi.eth", "a Protector ⚔️🛡️",
+                  "localcryptogod.eth"];
   if (i >= minters.length && i > minted) {
     var msg = "Coming soon! 🎉";
   } else if ( i >= minters.length && minters.length <= i ) {

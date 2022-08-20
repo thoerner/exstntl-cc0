@@ -9,46 +9,31 @@ import {
   getMintStart
 } from "./utils/interact.js";
 import Logo from './images/logo.png';
-import Alien from './images/nfts/alien.png';
-import AlienSold from './images/nfts/sold/alien.png';
-import Dickbutt from './images/nfts/dickbutt.png';
-import DickbuttSold from './images/nfts/sold/dickbutt.png';
-import Mfer from './images/nfts/mfer.png';
-import MferSold from './images/nfts/sold/mfer.png';
-import Moonbird from './images/nfts/sold/moonbird.png';
-import MoonbirdSold from './images/nfts/sold/moonbird.png';
-import Noun from './images/nfts/noun.png';
-import NounSold from './images/nfts/sold/noun.png';
-import Toad from './images/nfts/toad.png';
-import ToadSold from './images/nfts/sold/toad.png';
-import Larvalad from './images/nfts/larvalad.png';
-import LarvaladSold from './images/nfts/sold/larvalad.png';
-
-import Cryptomarc from './images/nfts/cryptomarc.png';
-import CryptomarcSold from './images/nfts/sold/cryptomarc.png';
-import Dresmarsreal from './images/nfts/dresmarsreal.png';
-import DresmarsrealSold from './images/nfts/sold/dresmarsreal.png';
-import Fastfoodpunk from './images/nfts/fastfoodpunk.png';
-import FastfoodpunkSold from './images/nfts/sold/fastfoodpunk.png';
-import Grifters from './images/nfts/grifters-xcopy.png';
-import GriftersSold from './images/nfts/sold/grifters-xcopy.png';
-import Phunk from './images/nfts/phunk.png';
-import PhunkSold from './images/nfts/sold/phunk.png';
-import Tinydino from './images/nfts/Tiny-Dino.png';
-import TinydinoSold from './images/nfts/sold/Tiny-Dino.png';
-import Uma from './images/nfts/uma.png';
-import UmaSold from './images/nfts/sold/uma.png';
-
 import Opensea from './images/os.png';
 import Default from './images/cc0x.png';
 import X from './images/x.png';
+import { Alien, AlienSold,
+         Moonbird, MoonbirdSold,
+         Dickbutt, DickbuttSold,
+         Noun, NounSold,
+         Mfer, MferSold,
+         Larvalad, LarvaladSold,
+         Toad, ToadSold,
+         Cryptomarc, CryptomarcSold,
+         Dresmarsreal, DresmarsrealSold,
+         Fastfoodpunk, FastfoodpunkSold,
+         Grifters, GriftersSold,
+         Phunk, PhunkSold,
+         Tinydino, TinydinoSold,
+         Uma, UmaSold } from './images/nfts/';
 import { CONTRACT_ADDRESS, STATUS_READY, STATUS_NOT_READY, STATUS_NO_MASK } from './utils/constants';
 import toast, { Toaster } from 'react-hot-toast';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import { Eth, Twitter, ToiletPaper } from './components/fas';
+import { Eth, Twitter, ToiletPaper } from './utils/fas';
 import { freeMintText } from './utils/highlights';
+import { RenderSubtitle, RenderFooter, MintButton } from './components/';
 
 library.add(fab, fas);
 
@@ -149,11 +134,7 @@ const getTime = (timestamp) => {
   return hour + ":" + minutes + t;
 }
 
-const SmallSpacer = props => {
-  return (
-    <div className="small-spacer"></div>
-  )
-}
+
 
 const RenderX = props => {
   return (
@@ -199,27 +180,9 @@ const RenderTitle = props => {
   );
 }
 
-const RenderPrice = props => {
-  return (
-    <div id="price">{price} <Eth/> <span className="small-text">+ gas</span></div>
-  );
-}
 
-const MintButton = props => {
-  var msgs = ["Mint the Bird", "Mint the Dickbutt", "Mint the Noun",
-              "Mint the Mfer", "Mint the Alien", "Mint the Slug",
-              "Mint the Toad", "Mint the Marc", "Mint the Mind",
-              "Mint the Punk", "Mint the Grifter", "Mint the Phunk",
-              "Mint the Dino", "Mint the Uma", "Minting Soon"];
-  return (
-    <div id="mint-button-area">
-      <button id="mintButton" onClick={() => mint()}>
-        {msgs[minted]}
-      </button>
-      <RenderPrice/>
-    </div>
-  );
-}
+
+
 
 const RenderNfts = props => {
   const nftImages = nfts.map((nft, i) => <span>{nfts[minted]===nft || i===nfts.length-1 ? "" : renderNft(i)}</span>)
@@ -251,7 +214,7 @@ const nftToast = (i) => {
   var minters = [ "moykle.eth", "IronStride", "liamtpd.eth",
                   "mniml.eth", "anon 0xE8a1...c990", "our friend 0xE8a1",
                   "a dedicated collector", "chonkyrubi.eth", "a Protector ⚔️🛡️",
-                  "localcryptogod.eth"];
+                  "localcryptogod.eth", "ultrajack.eth", "anon 0x0DAE...6183"];
   if (i >= minters.length && i > minted) {
     var msg = "Coming soon! 🎉";
   } else if ( i >= minters.length && minters.length <= i ) {
@@ -260,52 +223,6 @@ const nftToast = (i) => {
     var msg = "Minted by " + minters[i] + "!";
   }
   toast(msg);
-}
-
-const RenderFooter = props => {
-  return (
-    <div id="text-container">
-      <p>We meme together. We build together.</p>
-      <div id="social-container">
-        <a
-          href="https://twitter.com/EXSTNTLdotART"
-          id="social"
-          title="Twitter"
-          target="_blank"
-          rel="noreferrer">
-            <Twitter/>
-        </a>
-        <SmallSpacer/>
-        <a
-          href="https://exstntldotart.notion.site/CC0mune-a55e8d401ad44d9a9a1ee8a9aea6169e"
-          id="social"
-          title="CC0munal Paper"
-          target="_blank"
-          rel="noreferrer">
-            <ToiletPaper/>
-        </a>
-        <SmallSpacer/>
-        <a
-          href="https://opensea.io/collection/cc0mune"
-          id="social"
-          title="Opensea"
-          target="_blank"
-          rel="noreferrer">
-          <span id="social-icon">
-            <img id="os-icon" src={Opensea}></img>
-          </span>
-        </a>
-      </div>
-    </div>
-  )
-}
-
-const RenderSubtitle = props => {
-  return (
-    <div id="subtitle">
-      <p>We're not a community, we're a CC0mune.</p>
-    </div>
-  )
 }
 
 const renderHightLightImage = (i) => {
@@ -363,7 +280,11 @@ const RenderHighlight = props => {
         <div id="highlight-text-container">
           {text}
         </div>
-        <MintButton/>
+        <MintButton
+          mint={mint}
+          price={price}
+          minted={minted}
+        />
       </div>
       {renderHightLightImage(minted)}
     </div>

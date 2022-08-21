@@ -1,20 +1,26 @@
 import toast from 'react-hot-toast';
+import { nfts, nftImgs, soldNftImgs } from '../utils/metadata';
 
 export const RenderNfts = props => {
   const renderNft = (i) => {
     var nft, src;
     if (props.minted > i) {
-      src = props.soldNftImgs[i];
-      nft = props.nfts[i];
+      src = soldNftImgs[i];
+      nft = nfts[i];
     } else if (props.minted === i) {
-      src = props.nftImgs[i - 1];
-      nft = props.nfts[i - 1];
+      src = nftImgs[i - 1];
+      nft = nfts[i - 1];
     } else {
-      src = props.nftImgs[i];
-      nft = props.nfts[i];
+      src = nftImgs[i];
+      nft = nfts[i];
     }
-    const element = <img src={src} className="nft" id={nft}
-      onClick={() => nftToast(i) }></img>;
+    const element = <img
+        src={src}
+        className="nft"
+        id={nft}
+        alt={nft}
+        onClick={() => nftToast(i) }>
+      </img>;
     return element;
   }
 
@@ -23,18 +29,19 @@ export const RenderNfts = props => {
                     "mniml.eth", "anon 0xE8a1...c990", "our friend 0xE8a1",
                     "a dedicated collector", "chonkyrubi.eth", "a Protector ⚔️🛡️",
                     "localcryptogod.eth", "ultrajack.eth", "anon 0x0DAE...6183"];
+    var msg;
     if (i >= minters.length && i > props.minted) {
-      var msg = "Coming soon! 🎉";
+      msg = "Coming soon! 🎉";
     } else if ( i >= minters.length && minters.length <= i ) {
-      var msg = "Just minted!";
+      msg = "Just minted!";
     } else {
-      var msg = "Minted by " + minters[i] + "!";
+      msg = "Minted by " + minters[i] + "!";
     }
     toast(msg);
   }
 
 
-  const nftImages = props.nfts.map((nft, i) => <span>{props.nfts[props.minted]===nft || i===props.nfts.length-1 ? "" : renderNft(i)}</span>)
+  const nftImages = nfts.map((nft, i) => <span key={nft}>{nfts[props.minted]===nft || i===nfts.length-1 ? "" : renderNft(i)}</span>)
   return (
     <div id="nft-container">
       {nftImages}

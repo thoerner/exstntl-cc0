@@ -1,5 +1,6 @@
 export const Spacer = props => {
+  var size = props.size > 0 ? props.size : "0.5";
   return (
-    <div className="small-spacer"></div>
+    <div style={{padding: size + 'vw'}}></div>
   )
 }

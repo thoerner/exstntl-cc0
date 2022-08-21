@@ -4,7 +4,7 @@ import Logo from '../images/logo.png';
 export const RenderTitle = props => {
   return (
     <div id="logoContainer">
-      <a href="#"><img src={Logo} id="logo"></img></a>
+      <img src={Logo} id="logo" alt="CC0mune Logo"></img>
       <RenderSubtitle/>
     </div>
   );

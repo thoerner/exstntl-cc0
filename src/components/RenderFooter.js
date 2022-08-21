@@ -15,7 +15,7 @@ export const RenderFooter = props => {
           rel="noreferrer">
             <Twitter/>
         </a>
-        <Spacer/>
+        <Spacer size="0.5"/>
         <a
           href="https://exstntldotart.notion.site/CC0mune-a55e8d401ad44d9a9a1ee8a9aea6169e"
           id="social"
@@ -24,7 +24,7 @@ export const RenderFooter = props => {
           rel="noreferrer">
             <ToiletPaper/>
         </a>
-        <Spacer/>
+        <Spacer size="0.5"/>
         <a
           href="https://opensea.io/collection/cc0mune"
           id="social"
@@ -32,7 +32,7 @@ export const RenderFooter = props => {
           target="_blank"
           rel="noreferrer">
           <span id="social-icon">
-            <img id="os-icon" src={Opensea}></img>
+            <img id="os-icon" src={Opensea} alt="Opensea"></img>
           </span>
         </a>
       </div>

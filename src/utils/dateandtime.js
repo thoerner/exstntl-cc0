@@ -12,12 +12,12 @@ export const getTime = (timestamp) => {
   var t = "AM";
   var hour = ("0" + date.getHours()).substr(-2);
   var minutes = ("0" + date.getMinutes()).substr(-2);
-  var seconds = ("0" + date.getSeconds()).substr(-2);
+  //var seconds = ("0" + date.getSeconds()).substr(-2);
 
   if (hour > 12) {
     hour = hour - 12;
     t = "PM";
-  } else if (hour == 0) {
+  } else if (hour === 0) {
     hour = 12;
   }
 

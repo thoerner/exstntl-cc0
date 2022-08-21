@@ -13,11 +13,11 @@ export const MintButton = props => {
     var time = await getTimestamp();
     if (time < mintStart) {
       var date = await getDate(mintStart);
-      var time = await getTime(mintStart);
+      time = await getTime(mintStart);
       toast("Mint inactive until \n" + date + " @ " + time + "!");
     } else {
       let tx = await mintNFT(1);
-      if (tx.success == true) {
+      if (tx.success === true) {
         toast(tx.status,
         { style: {
           minWidth: '90vw',

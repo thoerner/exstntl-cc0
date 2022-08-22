@@ -1,17 +1,25 @@
 import { Alien, AlienSold,
-         Moonbird, MoonbirdSold,
-         Dickbutt, DickbuttSold,
-         Noun, NounSold,
-         Mfer, MferSold,
-         Larvalad, LarvaladSold,
-         Toad, ToadSold,
-         Cryptomarc, CryptomarcSold,
-         Dresmarsreal, DresmarsrealSold,
-         Fastfoodpunk, FastfoodpunkSold,
-         Grifters, GriftersSold,
-         Phunk, PhunkSold,
-         Tinydino, TinydinoSold,
-         Uma, UmaSold } from '../images/nfts/';
+       Moonbird, MoonbirdSold,
+       Dickbutt, DickbuttSold,
+       Noun, NounSold,
+       Mfer, MferSold,
+       Larvalad, LarvaladSold,
+       Toad, ToadSold,
+       Cryptomarc, CryptomarcSold,
+       Dresmarsreal, DresmarsrealSold,
+       Fastfoodpunk, FastfoodpunkSold,
+       Grifters, GriftersSold,
+       Phunk, PhunkSold,
+       Tinydino, TinydinoSold,
+       Uma, UmaSold,
+       Oddities, OdditiesSold,
+       Cryptoflyz, CryptoflyzSold,
+       Loot, LootSold,
+       Loweffort, LoweffortSold,
+       Moonrunner, MoonrunnerSold,
+       Sartoshi, SartoshiSold,
+       Waster, WasterSold
+     } from '../images/nfts/';
 import Default from '../images/cc0x.png';
 
 var nounText = <div>
@@ -137,7 +145,7 @@ export const nftMeta = [
     mintMsg: "Mint the Dino",
     highlightMsg: "Not extinct.",
     emoji: "🦖",
-    minter: null
+    minter: "anon 0x6cd1...8361"
   },
   {
     name: "uma",
@@ -146,6 +154,69 @@ export const nftMeta = [
     mintMsg: "Mint the Uma",
     emoji: "🌍",
     highlightMsg: "Uma",
+    minter: "ultrajack.eth"
+  },
+  {
+    name: "oddities",
+    img: Oddities,
+    soldImg: OdditiesSold,
+    mintMsg: "Mint the Oddity",
+    highlightMsg: "0ddly license free",
+    emoji: "➰",
+    minter: null
+  },
+  {
+    name: "cryptoflyz",
+    img: Cryptoflyz,
+    soldImg: CryptoflyzSold,
+    mintMsg: "Mint the Fly",
+    highlightMsg: "T0ad F00d",
+    emoji: "🪰",
+    minter: null
+  },
+  {
+    name: "loot",
+    img: Loot,
+    soldImg: LootSold,
+    mintMsg: "Mint the .txt",
+    highlightMsg: "F0r Adventurers",
+    emoji: "💰",
+    minter: null
+  },
+  {
+    name: "loweffort",
+    img: Loweffort,
+    soldImg: LoweffortSold,
+    mintMsg: "Mint the punk",
+    highlightMsg: "An h0mage to low effort license restrictions",
+    emoji: "😪",
+    minter: null
+  },
+  {
+    name: "moonrunner",
+    img: Moonrunner,
+    soldImg: MoonrunnerSold,
+    mintMsg: "Mint the Doggo",
+    highlightMsg: "The d0g days of cc0 summer",
+    emoji: "🐶",
+    minter: null
+  },
+  {
+    name: "sartoshi",
+    img: Sartoshi,
+    soldImg: SartoshiSold,
+    mintMsg: "Mint the Sartoshi",
+    highlightMsg: "0nly the beginning.",
+    emoji: "🖼️",
+    minter: null
+  },
+  {
+    name: "waster",
+    img: Waster,
+    soldImg: WasterSold,
+    mintMsg: "Mint the Waster",
+    highlightMsg: "Wasting time and money on shiny jpegs how does it feel?",
+    emoji: "💸",
     minter: null
   },
   {
@@ -177,7 +248,7 @@ for (i = 0; i < nftMeta.length; i++) {
 
 var mintMsgs = [];
 for (i = 0; i < nftMeta.length; i++) {
-  mintMsgs.push(nftMeta[i].mingMsg);
+  mintMsgs.push(nftMeta[i].mintMsg);
 }
 
 var emojis = [];
@@ -190,4 +261,9 @@ for (i = 0; i < nftMeta.length; i++) {
   highlightMsgs.push(nftMeta[i].highlightMsg);
 }
 
-export {nfts, nftImgs, soldNftImgs, mintMsgs, emojis, highlightMsgs};
+var minters = [];
+for (i = 0; i < nftMeta.length; i++) {
+  minters.push(nftMeta[i].minter);
+}
+
+export {nfts, nftImgs, soldNftImgs, mintMsgs, emojis, highlightMsgs, minters};

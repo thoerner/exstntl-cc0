@@ -1,5 +1,12 @@
 import toast from 'react-hot-toast';
-import { nfts, nftImgs, soldNftImgs } from '../utils/metadata';
+import { nfts, nftImgs, soldNftImgs, minters } from '../utils/metadata';
+
+var cleanMinters = [];
+for (var i = 0; i < minters.length; i++) {
+  if (minters[i] !== null) {
+    cleanMinters.push(minters[i]);
+  }
+}
 
 export const RenderNfts = props => {
   const renderNft = (i) => {
@@ -25,21 +32,16 @@ export const RenderNfts = props => {
   }
 
   const nftToast = (i) => {
-    var minters = [ "moykle.eth", "IronStride", "liamtpd.eth",
-                    "mniml.eth", "anon 0xE8a1...c990", "our friend 0xE8a1",
-                    "a dedicated collector", "chonkyrubi.eth", "a Protector ⚔️🛡️",
-                    "localcryptogod.eth", "ultrajack.eth", "anon 0x0DAE...6183"];
     var msg;
-    if (i >= minters.length && i > props.minted) {
+    if (i >= cleanMinters.length && i > props.minted) {
       msg = "Coming soon! 🎉";
-    } else if ( i >= minters.length && minters.length <= i ) {
+    } else if ( i >= cleanMinters.length && cleanMinters.length <= i ) {
       msg = "Just minted!";
     } else {
-      msg = "Minted by " + minters[i] + "!";
+      msg = "Minted by " + cleanMinters[i] + "!";
     }
     toast(msg);
   }
-
 
   const nftImages = nfts.map((nft, i) => <span key={nft}>{nfts[props.minted]===nft || i===nfts.length-1 ? "" : renderNft(i)}</span>)
   return (

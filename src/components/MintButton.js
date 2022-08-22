@@ -1,11 +1,12 @@
-import { RenderPrice } from '.';
 import {
   getTimestamp,
   getMintStart,
   mintNFT
 } from "../utils/interact";
-import toast from 'react-hot-toast';
 import { getDate, getTime } from '../utils/dateandtime';
+import toast from 'react-hot-toast';
+import { mintMsgs } from '../utils/metadata';
+import { RenderPrice } from '.';
 
 export const MintButton = props => {
   const mint = async () => {
@@ -30,15 +31,10 @@ export const MintButton = props => {
     }
   }
 
-  var msgs = ["Mint the Bird", "Mint the Dickbutt", "Mint the Noun",
-              "Mint the Mfer", "Mint the Alien", "Mint the Slug",
-              "Mint the Toad", "Mint the Marc", "Mint the Mind",
-              "Mint the Punk", "Mint the Grifter", "Mint the Phunk",
-              "Mint the Dino", "Mint the Uma", "Minting Soon"];
   return (
     <div id="mint-button-area">
       <button id="mintButton" onClick={() => mint()}>
-        {msgs[props.minted]}
+        {mintMsgs[props.minted]}
       </button>
       <RenderPrice
         price={props.price}

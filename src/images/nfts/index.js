@@ -27,18 +27,41 @@ import TinydinoSold from './sold/Tiny-Dino.png';
 import Uma from './uma.png';
 import UmaSold from './sold/uma.png';
 
+import Oddities from './0ddities.png';
+import OdditiesSold from './sold/0ddities.png';
+import Cryptoflyz from './crypt0flyz.png';
+import CryptoflyzSold from './sold/crypt0flyz.png';
+import Loot from './L00t.png';
+import LootSold from './sold/L00t.png';
+import Loweffort from './l0weffort.png';
+import LoweffortSold from './sold/l0weffort.png';
+import Moonrunner from './m00nrunner.png';
+import MoonrunnerSold from './sold/m00nrunner.png';
+import Sartoshi from './sart0shi.png';
+import SartoshiSold from './sold/sart0shi.png';
+import Waster from './waster.png';
+import WasterSold from './sold/waster.png';
+
 
 export { Alien, AlienSold,
-         Moonbird, MoonbirdSold,
-         Dickbutt, DickbuttSold,
-         Noun, NounSold,
-         Mfer, MferSold,
-         Larvalad, LarvaladSold,
-         Toad, ToadSold,
-         Cryptomarc, CryptomarcSold,
-         Dresmarsreal, DresmarsrealSold,
-         Fastfoodpunk, FastfoodpunkSold,
-         Grifters, GriftersSold,
-         Phunk, PhunkSold,
-         Tinydino, TinydinoSold,
-         Uma, UmaSold };
+       Moonbird, MoonbirdSold,
+       Dickbutt, DickbuttSold,
+       Noun, NounSold,
+       Mfer, MferSold,
+       Larvalad, LarvaladSold,
+       Toad, ToadSold,
+       Cryptomarc, CryptomarcSold,
+       Dresmarsreal, DresmarsrealSold,
+       Fastfoodpunk, FastfoodpunkSold,
+       Grifters, GriftersSold,
+       Phunk, PhunkSold,
+       Tinydino, TinydinoSold,
+       Uma, UmaSold,
+       Oddities, OdditiesSold,
+       Cryptoflyz, CryptoflyzSold,
+       Loot, LootSold,
+       Loweffort, LoweffortSold,
+       Moonrunner, MoonrunnerSold,
+       Sartoshi, SartoshiSold,
+       Waster, WasterSold
+     };

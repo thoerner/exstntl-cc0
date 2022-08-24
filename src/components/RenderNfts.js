@@ -33,14 +33,18 @@ export const RenderNfts = props => {
 
   const nftToast = (i) => {
     var msg;
+    var emoji = "";
     if (i >= cleanMinters.length && i > props.minted) {
-      msg = "Coming soon! 🎉";
+      msg = "Coming soon!";
+      emoji = "🎉";
     } else if ( i >= cleanMinters.length && cleanMinters.length <= i ) {
       msg = "Just minted!";
     } else {
       msg = "Minted by " + cleanMinters[i] + "!";
     }
-    toast(msg);
+    toast(msg, {
+      icon: emoji
+    });
   }
 
   const nftImages = nfts.map((nft, i) => <span key={nft}>{nfts[props.minted]===nft || i===nfts.length-1 ? "" : renderNft(i)}</span>)

@@ -178,7 +178,7 @@ export const nftMeta = [
     name: "loot",
     img: Loot,
     soldImg: LootSold,
-    mintMsg: "Mint the .txt",
+    mintMsg: "Mint the Loot",
     highlightMsg: "F0r Adventurers",
     emoji: "💰",
     minter: null

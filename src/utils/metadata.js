@@ -163,7 +163,7 @@ export const nftMeta = [
     mintMsg: "Mint the Oddity",
     highlightMsg: "0ddly license free",
     emoji: "➰",
-    minter: null
+    minter: "NYapeYachtClub"
   },
   {
     name: "cryptoflyz",
@@ -172,7 +172,7 @@ export const nftMeta = [
     mintMsg: "Mint the Fly",
     highlightMsg: "T0ad F00d",
     emoji: "🪰",
-    minter: null
+    minter: "Gutter Clone Rat Collector"
   },
   {
     name: "loot",
@@ -181,7 +181,7 @@ export const nftMeta = [
     mintMsg: "Mint the Loot",
     highlightMsg: "F0r Adventurers",
     emoji: "💰",
-    minter: null
+    minter: "crypt0potamus.eth"
   },
   {
     name: "loweffort",
@@ -190,7 +190,7 @@ export const nftMeta = [
     mintMsg: "Mint the punk",
     highlightMsg: "An h0mage to low effort license restrictions",
     emoji: "😪",
-    minter: null
+    minter: "Bubah"
   },
   {
     name: "moonrunner",
@@ -199,7 +199,7 @@ export const nftMeta = [
     mintMsg: "Mint the Doggo",
     highlightMsg: "The d0g days of cc0 summer",
     emoji: "🐶",
-    minter: null
+    minter: "Bubah"
   },
   {
     name: "sartoshi",

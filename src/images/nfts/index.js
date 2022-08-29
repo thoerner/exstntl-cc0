@@ -42,8 +42,24 @@ import SartoshiSold from './sold/sart0shi.png';
 import Waster from './waster.png';
 import WasterSold from './sold/waster.png';
 
+import Wagdie from './wagdie.png';
+import WagdieSold from './sold/wagdie.png';
+import Crazyfrog from './crazy frog.png';
+import CrazyfrogSold from './sold/crazy frog.png';
+import Noadz from './noadz.png';
+import NoadzSold from './sold/noadz.png';
+import Goblin from './goblin.png';
+import GoblinSold from './sold/goblin.png';
+import Pronoun from './pronoun.png';
+import PronounSold from './sold/pronoun.png';
+import Viper from './viper.png';
+import ViperSold from './sold/viper.png';
+import Worldnoun from './world of noun.png';
+import WorldnounSold from './sold/world of noun.png';
 
-export { Alien, AlienSold,
+
+export {
+       Alien, AlienSold,
        Moonbird, MoonbirdSold,
        Dickbutt, DickbuttSold,
        Noun, NounSold,
@@ -63,5 +79,12 @@ export { Alien, AlienSold,
        Loweffort, LoweffortSold,
        Moonrunner, MoonrunnerSold,
        Sartoshi, SartoshiSold,
-       Waster, WasterSold
+       Waster, WasterSold,
+       Wagdie, WagdieSold,
+       Crazyfrog, CrazyfrogSold,
+       Noadz, NoadzSold,
+       Goblin, GoblinSold,
+       Pronoun, PronounSold,
+       Viper, ViperSold,
+       Worldnoun, WorldnounSold
      };

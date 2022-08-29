@@ -18,7 +18,14 @@ import { Alien, AlienSold,
        Loweffort, LoweffortSold,
        Moonrunner, MoonrunnerSold,
        Sartoshi, SartoshiSold,
-       Waster, WasterSold
+       Waster, WasterSold,
+       Wagdie, WagdieSold,
+       Crazyfrog, CrazyfrogSold,
+       Noadz, NoadzSold,
+       Goblin, GoblinSold,
+       Pronoun, PronounSold,
+       Viper, ViperSold,
+       Worldnoun, WorldnounSold
      } from '../images/nfts/';
 import Default from '../images/cc0x.png';
 
@@ -208,7 +215,7 @@ export const nftMeta = [
     mintMsg: "Mint the Sartoshi",
     highlightMsg: "0nly the beginning.",
     emoji: "🖼️",
-    minter: null
+    minter: "ultrajack.eth"
   },
   {
     name: "waster",
@@ -217,6 +224,69 @@ export const nftMeta = [
     mintMsg: "Mint the Waster",
     highlightMsg: "Wasting time and money on shiny jpegs how does it feel?",
     emoji: "💸",
+    minter: "liamtpd.eth"
+  },
+  {
+    name: "wagdie",
+    img: Wagdie,
+    soldImg: WagdieSold,
+    mintMsg: "Mint the WAGDIE",
+    highlightMsg: "Death awaits… apparently.",
+    emoji: "💀",
+    minter: null
+  },
+  {
+    name: "crazyfrog",
+    img: Crazyfrog,
+    soldImg: CrazyfrogSold,
+    mintMsg: "Mint the Frog",
+    highlightMsg: "A fr0g with legs",
+    emoji: "🐸",
+    minter: null
+  },
+  {
+    name: "noadz",
+    img: Noadz,
+    soldImg: NoadzSold,
+    mintMsg: "Mint the Noadz",
+    highlightMsg: "Half noun half toad all cc0.",
+    emoji: "😼",
+    minter: null
+  },
+  {
+    name: "goblin",
+    img: Goblin,
+    soldImg: GoblinSold,
+    mintMsg: "MAKIN gobblin",
+    highlightMsg: "ₐₐₐₐₐₐₐᵤᵤᵤᵤᵤGGGₕₕₕₕₕ",
+    emoji: "👺",
+    minter: null
+  },
+  {
+    name: "pronoun",
+    img: Pronoun,
+    soldImg: PronounSold,
+    mintMsg: "Mint the Pronoun",
+    highlightMsg: "He/Her/They/Noun",
+    emoji: "🆔",
+    minter: null
+  },
+  {
+    name: "viper",
+    img: Viper,
+    soldImg: ViperSold,
+    mintMsg: "Mint the Viper",
+    highlightMsg: "Sssssssss",
+    emoji: "🐍",
+    minter: null
+  },
+  {
+    name: "worldnoun",
+    img: Worldnoun,
+    soldImg: WorldnounSold,
+    mintMsg: "Mint the World Noun",
+    highlightMsg: "Around the world around the world around the world around the world.",
+    emoji: "🌏",
     minter: null
   },
   {

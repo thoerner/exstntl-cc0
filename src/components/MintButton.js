@@ -31,10 +31,12 @@ export const MintButton = props => {
     }
   }
 
+  var mintMsg = props.minted < 0 ? "Loading..." : mintMsgs[props.minted];
+
   return (
     <div id="mint-button-area">
       <button id="mintButton" onClick={() => mint()}>
-        {mintMsgs[props.minted]}
+        {mintMsg}
       </button>
       <RenderPrice
         price={props.price}

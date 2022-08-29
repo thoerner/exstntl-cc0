@@ -8,7 +8,12 @@ export const RenderHighlight = props => {
     toast(highlightMsgs[props.minted], { icon: emojis[props.minted] });
   }
   const renderHightLightImage = (i) => {
-    var src = nftImgs[i];
+    var src;
+    if (i < 0) {
+      src = nftImgs[nftImgs.length - 1];
+    } else {
+      src = nftImgs[i];
+    }
     const element = <img
         src={src}
         className="nft activeNft"

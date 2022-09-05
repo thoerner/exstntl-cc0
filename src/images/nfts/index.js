@@ -57,6 +57,21 @@ import ViperSold from './sold/viper.png';
 import Worldnoun from './world of noun.png';
 import WorldnounSold from './sold/world of noun.png';
 
+import Phunkv3 from './phunkV3.png';
+import Phunkv3Sold from './sold/phunkV3.png';
+import Mistletoadz from './mistletoadz.png';
+import MistletoadzSold from './sold/mistletoadz.png';
+import Lilnoun from './lilnoun.png';
+import LilnounSold from './sold/lilnoun.png';
+import Rightclickshare from './right-click-share.png';
+import RightclickshareSold from './sold/right-click-share.png';
+import Mferchick from './mfer-chick.png';
+import MferchickSold from './sold/mfer-chick.png';
+import Fastfoodnoun from './fast-food-noun.png';
+import FastfoodnounSold from './sold/fast-food-noun.png';
+import Xtoadz from './xtoadz.png';
+import XtoadzSold from './sold/xtoadz.png';
+
 
 export {
        Alien, AlienSold,
@@ -86,5 +101,12 @@ export {
        Goblin, GoblinSold,
        Pronoun, PronounSold,
        Viper, ViperSold,
-       Worldnoun, WorldnounSold
+       Worldnoun, WorldnounSold,
+       Phunkv3, Phunkv3Sold,
+       Mistletoadz, MistletoadzSold,
+       Lilnoun, LilnounSold,
+       Rightclickshare, RightclickshareSold,
+       Mferchick, MferchickSold,
+       Fastfoodnoun, FastfoodnounSold,
+       Xtoadz, XtoadzSold
      };

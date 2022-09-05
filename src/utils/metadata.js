@@ -25,7 +25,14 @@ import { Alien, AlienSold,
        Goblin, GoblinSold,
        Pronoun, PronounSold,
        Viper, ViperSold,
-       Worldnoun, WorldnounSold
+       Worldnoun, WorldnounSold,
+       Phunkv3, Phunkv3Sold,
+       Mistletoadz, MistletoadzSold,
+       Lilnoun, LilnounSold,
+       Rightclickshare, RightclickshareSold,
+       Mferchick, MferchickSold,
+       Fastfoodnoun, FastfoodnounSold,
+       Xtoadz, XtoadzSold
      } from '../images/nfts/';
 import Default from '../images/cc0x.png';
 
@@ -287,6 +294,69 @@ export const nftMeta = [
     mintMsg: "Mint the World Noun",
     highlightMsg: "Around the world around the world around the world around the world.",
     emoji: "🌏",
+    minter: null
+  },
+  {
+    name: "phunkv3",
+    img: Phunkv3,
+    soldImg: Phunkv3Sold,
+    mintMsg: "Mint the Phunk",
+    highlightMsg: "The third coming.",
+    emoji: "🤘",
+    minter: null
+  },
+  {
+    name: "mistletoadz",
+    img: Mistletoadz,
+    soldImg: MistletoadzSold,
+    mintMsg: "Mint the Toadz",
+    highlightMsg: "Jingle Bells, Gremplin smells.",
+    emoji: "🔔",
+    minter: null
+  },
+  {
+    name: "lilnoun",
+    img: Lilnoun,
+    soldImg: LilnounSold,
+    mintMsg: "Mint the Noun",
+    highlightMsg: "Not a rapper. Just a small noun.",
+    emoji: "🤏",
+    minter: null
+  },
+  {
+    name: "rightclickshare",
+    img: Rightclickshare,
+    soldImg: RightclickshareSold,
+    mintMsg: "Mint the Anon",
+    highlightMsg: "Sharing is caring.",
+    emoji: "🤝",
+    minter: null
+  },
+  {
+    name: "mferchick",
+    img: Mferchick,
+    soldImg: MferchickSold,
+    mintMsg: "Mint the Mfer",
+    highlightMsg: "Not a sir.",
+    emoji: "♀️",
+    minter: null
+  },
+  {
+    name: "fastfoodnoun",
+    img: Fastfoodnoun,
+    soldImg: FastfoodnounSold,
+    mintMsg: "Mint the Noun",
+    highlightMsg: "A fast/casual DAO experience. ",
+    emoji: "🍔",
+    minter: null
+  },
+  {
+    name: "xtoadz",
+    img: Xtoadz,
+    soldImg: XtoadzSold,
+    mintMsg: "Mint the Toadz",
+    highlightMsg: "X marks the Toadz.",
+    emoji: "🐸",
     minter: null
   },
   {
